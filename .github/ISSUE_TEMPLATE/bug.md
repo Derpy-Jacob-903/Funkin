@@ -9,7 +9,7 @@ labels: bug
 [Newgrounds](https://www.newgrounds.com/portal/view/770371) or [Itch.io](https://ninja-muffin24.itch.io/funkin)? Specify below.
 
 ### If you are playing the game in a browser, what browser are you using?
-Chrome (or a Chromium based browser, i.e. Edge, Opera, etc.), Firefox, or Safari? Specify blow.
+Chrome (or a Chromium based browser, i.e. Edge, Opera, etc.), Firefox, or Safari? Specify below.
 
 ### If you are playing a downloaded version of the game, what operating system are you using?
 Windows (`x86`), Windows (`x86_64`), Linux, or macOS? Specify below.
