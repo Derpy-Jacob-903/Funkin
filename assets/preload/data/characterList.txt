@@ -17,4 +17,5 @@ senpai-angry
 spirit
 tankman
 witT
+witT-angry
 hex
