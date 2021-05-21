@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="credits_icons.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="icond basic0000" x="0" y="0" width="102" height="100"/>
+	<SubTexture name="icond basic0001" x="0" y="0" width="102" height="100"/>
+	<SubTexture name="icond basic0002" x="0" y="0" width="102" height="100"/>
+	<SubTexture name="icond basic0003" x="0" y="0" width="102" height="100"/>
+	<SubTexture name="icond basic0004" x="0" y="0" width="102" height="100"/>
+	<SubTexture name="icond white0000" x="112" y="0" width="130" height="128" frameX="-3" frameY="-3" frameWidth="136" frameHeight="134"/>
+	<SubTexture name="icond white0001" x="112" y="0" width="130" height="128" frameX="-3" frameY="-3" frameWidth="136" frameHeight="134"/>
+	<SubTexture name="icond white0002" x="112" y="0" width="130" height="128" frameX="-3" frameY="-3" frameWidth="136" frameHeight="134"/>
+	<SubTexture name="icond white0003" x="112" y="0" width="130" height="128" frameX="-3" frameY="-3" frameWidth="136" frameHeight="134"/>
+	<SubTexture name="icond white0004" x="112" y="0" width="130" height="128" frameX="-3" frameY="-3" frameWidth="136" frameHeight="134"/>
+	<SubTexture name="icond white0005" x="252" y="0" width="136" height="134"/>
+	<SubTexture name="icond white0006" x="252" y="0" width="136" height="134"/>
+	<SubTexture name="icond white0007" x="252" y="0" width="136" height="134"/>
+	<SubTexture name="icond white0008" x="252" y="0" width="136" height="134"/>
+	<SubTexture name="icond white0009" x="252" y="0" width="136" height="134"/>
+	<SubTexture name="iconj basic0000" x="398" y="0" width="82" height="87"/>
+	<SubTexture name="iconj basic0001" x="398" y="0" width="82" height="87"/>
+	<SubTexture name="iconj basic0002" x="398" y="0" width="82" height="87"/>
+	<SubTexture name="iconj basic0003" x="398" y="0" width="82" height="87"/>
+	<SubTexture name="iconj basic0004" x="398" y="0" width="82" height="87"/>
+	<SubTexture name="iconj white0000" x="0" y="144" width="104" height="111" frameX="-1" frameY="-4" frameWidth="109" frameHeight="115"/>
+	<SubTexture name="iconj white0001" x="0" y="144" width="104" height="111" frameX="-1" frameY="-4" frameWidth="109" frameHeight="115"/>
+	<SubTexture name="iconj white0002" x="0" y="144" width="104" height="111" frameX="-1" frameY="-4" frameWidth="109" frameHeight="115"/>
+	<SubTexture name="iconj white0003" x="0" y="144" width="104" height="111" frameX="-1" frameY="-4" frameWidth="109" frameHeight="115"/>
+	<SubTexture name="iconj white0004" x="0" y="144" width="104" height="111" frameX="-1" frameY="-4" frameWidth="109" frameHeight="115"/>
+	<SubTexture name="iconj white0005" x="114" y="144" width="109" height="115"/>
+	<SubTexture name="iconj white0006" x="114" y="144" width="109" height="115"/>
+	<SubTexture name="iconj white0007" x="114" y="144" width="109" height="115"/>
+	<SubTexture name="iconj white0008" x="114" y="144" width="109" height="115"/>
+	<SubTexture name="iconj white0009" x="114" y="144" width="109" height="115"/>
+	<SubTexture name="icons basic0000" x="233" y="144" width="96" height="92"/>
+	<SubTexture name="icons basic0001" x="233" y="144" width="96" height="92"/>
+	<SubTexture name="icons basic0002" x="233" y="144" width="96" height="92"/>
+	<SubTexture name="icons basic0003" x="233" y="144" width="96" height="92"/>
+	<SubTexture name="icons basic0004" x="233" y="144" width="96" height="92"/>
+	<SubTexture name="icons white0000" x="339" y="144" width="122" height="118" frameX="-2" frameY="-3" frameWidth="128" frameHeight="123"/>
+	<SubTexture name="icons white0001" x="339" y="144" width="122" height="118" frameX="-2" frameY="-3" frameWidth="128" frameHeight="123"/>
+	<SubTexture name="icons white0002" x="339" y="144" width="122" height="118" frameX="-2" frameY="-3" frameWidth="128" frameHeight="123"/>
+	<SubTexture name="icons white0003" x="339" y="144" width="122" height="118" frameX="-2" frameY="-3" frameWidth="128" frameHeight="123"/>
+	<SubTexture name="icons white0004" x="339" y="144" width="122" height="118" frameX="-2" frameY="-3" frameWidth="128" frameHeight="123"/>
+	<SubTexture name="icons white0005" x="0" y="272" width="128" height="123"/>
+	<SubTexture name="icons white0006" x="0" y="272" width="128" height="123"/>
+	<SubTexture name="icons white0007" x="0" y="272" width="128" height="123"/>
+	<SubTexture name="icons white0008" x="0" y="272" width="128" height="123"/>
+	<SubTexture name="icons white0009" x="0" y="272" width="128" height="123"/>
+</TextureAtlas>

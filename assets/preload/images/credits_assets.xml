@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="credits_assets.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="duster White0000" x="0" y="0" width="478" height="94" frameX="-1" frameY="0" frameWidth="480" frameHeight="71"/>
+	<SubTexture name="duster White0001" x="488" y="0" width="477" height="94" frameX="-1" frameY="0" frameWidth="480" frameHeight="71"/>
+	<SubTexture name="duster White0002" x="0" y="104" width="480" height="94"/>
+	<SubTexture name="duster basic0000" x="490" y="104" width="359" height="71"/>
+	<SubTexture name="duster basic0001" x="490" y="104" width="359" height="71"/>
+	<SubTexture name="duster basic0002" x="490" y="104" width="359" height="71"/>
+	<SubTexture name="duster basic0003" x="0" y="208" width="359" height="71"/>
+	<SubTexture name="duster basic0004" x="0" y="208" width="359" height="71"/>
+	<SubTexture name="duster basic0005" x="0" y="208" width="359" height="71"/>
+	<SubTexture name="duster basic0006" x="369" y="208" width="359" height="71"/>
+	<SubTexture name="duster basic0007" x="369" y="208" width="359" height="71"/>
+	<SubTexture name="duster basic0008" x="369" y="208" width="359" height="71"/>
+	<SubTexture name="jorge White0000" x="738" y="208" width="282" height="94" frameX="-1" frameY="0" frameWidth="284" frameHeight="71"/>
+	<SubTexture name="jorge White0001" x="0" y="312" width="284" height="97"/>
+	<SubTexture name="jorge White0002" x="294" y="312" width="282" height="94" frameX="-1" frameY="0" frameWidth="284" frameHeight="71"/>
+	<SubTexture name="jorge basic0000" x="586" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0001" x="586" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0002" x="586" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0003" x="810" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0004" x="810" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0005" x="810" y="312" width="214" height="71"/>
+	<SubTexture name="jorge basic0006" x="0" y="419" width="214" height="71"/>
+	<SubTexture name="jorge basic0007" x="0" y="419" width="214" height="71"/>
+	<SubTexture name="jorge basic0008" x="0" y="419" width="214" height="71"/>
+	<SubTexture name="shady White0000" x="224" y="419" width="415" height="94" frameX="-3" frameY="0" frameWidth="418" frameHeight="71"/>
+	<SubTexture name="shady White0001" x="0" y="523" width="412" height="94" frameX="-3" frameY="0" frameWidth="418" frameHeight="71"/>
+	<SubTexture name="shady White0002" x="422" y="523" width="413" height="94" frameX="0" frameY="0" frameWidth="418" frameHeight="71"/>
+	<SubTexture name="shady basic0000" x="0" y="627" width="312" height="71"/>
+	<SubTexture name="shady basic0001" x="0" y="627" width="312" height="71"/>
+	<SubTexture name="shady basic0002" x="0" y="627" width="312" height="71"/>
+	<SubTexture name="shady basic0003" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="shady basic0004" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="shady basic0005" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="shady basic0006" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="shady basic0007" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="shady basic0008" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+</TextureAtlas>
