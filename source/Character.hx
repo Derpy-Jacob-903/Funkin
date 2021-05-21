@@ -497,7 +497,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				case 'monika':
-				frames = Paths.getSparrowAtlas('monika/monika_assets');
+				frames = Paths.getSparrowAtlas('characters/monika');
 				animation.addByPrefix('idle', 'Monika Idle', 24, false);
 				animation.addByPrefix('singUP', 'Monika UP NOTE', 24, false);
 				animation.addByPrefix('singLEFT', 'Monika LEFT NOTE', 24, false);
@@ -514,6 +514,8 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
+
+				antialiasing = false;
 		}
 
 		dance();

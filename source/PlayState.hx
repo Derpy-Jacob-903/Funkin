@@ -765,6 +765,10 @@ class PlayState extends MusicBeatState
 				dad.x += 150;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				case 'monika':
+					dad.x += 150;
+					dad.y += 360;
+					camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'senpai-angry':
 				dad.x += 150;
 				dad.y += 360;
@@ -1071,6 +1075,15 @@ class PlayState extends MusicBeatState
 				add(red);
 			}
 		}
+
+		
+		if (SONG.song.toLowerCase() == 'high-school-conflict')
+			{
+				remove(black);
+	
+			}
+	
+
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
