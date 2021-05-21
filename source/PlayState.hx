@@ -335,6 +335,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+		    case 'high school conflict':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
 		}
 
 		switch(SONG.stage)
@@ -768,7 +770,7 @@ class PlayState extends MusicBeatState
 				case 'monika':
 					dad.x += 150;
 					dad.y += 360;
-					camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+					camPos.x += 300;
 			case 'senpai-angry':
 				dad.x += 150;
 				dad.y += 360;
