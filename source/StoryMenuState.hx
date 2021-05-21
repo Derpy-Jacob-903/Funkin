@@ -24,7 +24,7 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['High School Conflict, Dreams Of Roses, Your Demise']
+		['High School Conflict', 'Dreams Of Roses', 'Your Demise']
 	];
 	var curDifficulty:Int = 1;
 
@@ -87,7 +87,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
+		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFFF93EC);
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
