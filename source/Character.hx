@@ -495,6 +495,25 @@ class Character extends FlxSprite
 				addOffset("singDOWN-alt", -30, -27);
 
 				playAnim('idle');
+
+				case 'monika':
+				frames = Paths.getSparrowAtlas('monika/monika_assets');
+				animation.addByPrefix('idle', 'Monika Idle', 24, false);
+				animation.addByPrefix('singUP', 'Monika UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'Monika LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'Monika RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'Monika DOWN NOTE', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 5, 37);
+				addOffset("singRIGHT");
+				addOffset("singLEFT", 40);
+				addOffset("singDOWN", 14);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
 		}
 
 		dance();
