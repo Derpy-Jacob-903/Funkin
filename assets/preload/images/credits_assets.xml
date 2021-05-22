@@ -2,40 +2,112 @@
 <TextureAtlas imagePath="credits_assets.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="duster White0000" x="0" y="0" width="478" height="94" frameX="-1" frameY="0" frameWidth="480" frameHeight="71"/>
-	<SubTexture name="duster White0001" x="488" y="0" width="477" height="94" frameX="-1" frameY="0" frameWidth="480" frameHeight="71"/>
-	<SubTexture name="duster White0002" x="0" y="104" width="480" height="94"/>
-	<SubTexture name="duster basic0000" x="490" y="104" width="359" height="71"/>
-	<SubTexture name="duster basic0001" x="490" y="104" width="359" height="71"/>
-	<SubTexture name="duster basic0002" x="490" y="104" width="359" height="71"/>
-	<SubTexture name="duster basic0003" x="0" y="208" width="359" height="71"/>
-	<SubTexture name="duster basic0004" x="0" y="208" width="359" height="71"/>
-	<SubTexture name="duster basic0005" x="0" y="208" width="359" height="71"/>
-	<SubTexture name="duster basic0006" x="369" y="208" width="359" height="71"/>
-	<SubTexture name="duster basic0007" x="369" y="208" width="359" height="71"/>
-	<SubTexture name="duster basic0008" x="369" y="208" width="359" height="71"/>
-	<SubTexture name="jorge White0000" x="738" y="208" width="282" height="94" frameX="-1" frameY="0" frameWidth="284" frameHeight="71"/>
-	<SubTexture name="jorge White0001" x="0" y="312" width="284" height="97"/>
-	<SubTexture name="jorge White0002" x="294" y="312" width="282" height="94" frameX="-1" frameY="0" frameWidth="284" frameHeight="71"/>
-	<SubTexture name="jorge basic0000" x="586" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0001" x="586" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0002" x="586" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0003" x="810" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0004" x="810" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0005" x="810" y="312" width="214" height="71"/>
-	<SubTexture name="jorge basic0006" x="0" y="419" width="214" height="71"/>
-	<SubTexture name="jorge basic0007" x="0" y="419" width="214" height="71"/>
-	<SubTexture name="jorge basic0008" x="0" y="419" width="214" height="71"/>
-	<SubTexture name="shady White0000" x="224" y="419" width="415" height="94" frameX="-3" frameY="0" frameWidth="418" frameHeight="71"/>
-	<SubTexture name="shady White0001" x="0" y="523" width="412" height="94" frameX="-3" frameY="0" frameWidth="418" frameHeight="71"/>
-	<SubTexture name="shady White0002" x="422" y="523" width="413" height="94" frameX="0" frameY="0" frameWidth="418" frameHeight="71"/>
-	<SubTexture name="shady basic0000" x="0" y="627" width="312" height="71"/>
-	<SubTexture name="shady basic0001" x="0" y="627" width="312" height="71"/>
-	<SubTexture name="shady basic0002" x="0" y="627" width="312" height="71"/>
-	<SubTexture name="shady basic0003" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
-	<SubTexture name="shady basic0004" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
-	<SubTexture name="shady basic0005" x="322" y="627" width="309" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
-	<SubTexture name="shady basic0006" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
-	<SubTexture name="shady basic0007" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
-	<SubTexture name="shady basic0008" x="641" y="627" width="308" height="71" frameX="-1" frameY="0" frameWidth="312" frameHeight="71"/>
+	<SubTexture name="Jorge basic0000" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0001" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0002" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0003" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0004" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0005" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0006" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0007" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge basic0008" x="0" y="0" width="447" height="26"/>
+	<SubTexture name="Jorge white0000" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0001" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0002" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0003" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0004" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0005" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0006" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0007" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Jorge white0008" x="0" y="36" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0000" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0001" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0002" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0003" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0004" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0005" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0006" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0007" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo basic0008" x="0" y="72" width="447" height="26"/>
+	<SubTexture name="Tokyo white0000" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0001" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0002" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0003" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0004" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0005" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0006" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0007" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="Tokyo white0008" x="0" y="108" width="447" height="26"/>
+	<SubTexture name="aether basic0000" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0001" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0002" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0003" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0004" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0005" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0006" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0007" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether basic0008" x="0" y="144" width="447" height="26"/>
+	<SubTexture name="aether white0000" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0001" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0002" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0003" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0004" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0005" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0006" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0007" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="aether white0008" x="0" y="180" width="447" height="26"/>
+	<SubTexture name="celeste basic0000" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0001" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0002" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0003" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0004" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0005" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0006" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0007" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste basic0008" x="0" y="216" width="447" height="26"/>
+	<SubTexture name="celeste white0000" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0001" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0002" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0003" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0004" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0005" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0006" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0007" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="celeste white0008" x="0" y="252" width="447" height="26"/>
+	<SubTexture name="diff basic0000" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0001" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0002" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0003" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0004" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0005" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0006" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0007" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff basic0008" x="0" y="288" width="447" height="26"/>
+	<SubTexture name="diff white0000" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0001" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0002" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0003" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0004" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0005" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0006" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0007" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="diff white0008" x="0" y="324" width="447" height="26"/>
+	<SubTexture name="duster basic0000" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0001" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0002" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0003" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0004" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0005" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0006" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0007" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster basic0008" x="0" y="360" width="447" height="26"/>
+	<SubTexture name="duster white0000" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0001" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0002" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0003" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0004" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0005" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0006" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0007" x="0" y="396" width="447" height="26"/>
+	<SubTexture name="duster white0008" x="0" y="396" width="447" height="26"/>
 </TextureAtlas>

@@ -4,6 +4,7 @@ import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
 import flixel.effects.FlxFlicker;
@@ -28,32 +29,32 @@ using StringTools;
 
 class CreditsMenu extends MusicBeatState
 {
-	var curSelected:Int = 1;
+	var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var crediticons:FlxTypedGroup<FlxSprite>;
 	var fixdiff:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['duster', 'shady', 'jorge'];
+	var optionShit:Array<String> = ['duster', 'Tokyo', 'Jorge', 'aether', 'celeste', 'diff'];
 	#else
-	var optionShit:Array<String> = ['shady'];
+	var optionShit:Array<String> = ['duster'];
 	#end
 
 	#if !switch
-	var creditshit:Array<String> = ['icond', 'icons', 'iconj'];
+	var creditshit:Array<String> = ['icond', 'icont', 'iconj', 'icona', 'iconc', 'icondi'];
 	#else
-	var creditshit:Array<String> = ['icons'];
+	var creditshit:Array<String> = ['icond'];
 	#end
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
-
+	var logo:FlxSprite;
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
-
+	var backdrop:FlxBackdrop;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 	var difficultySelectors:FlxGroup;
@@ -74,8 +75,8 @@ class CreditsMenu extends MusicBeatState
 		}
 
 		persistentUpdate = persistentDraw = true;
-
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		
+		var bg:FlxSprite = new FlxSprite(-80,-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.x = 0.10;
 		bg.scrollFactor.y = 0;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -84,23 +85,32 @@ class CreditsMenu extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
-		
-
-		camFollow = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new FlxSprite(0).loadGraphic(Paths.image('Credits_LeftSide'));
 		magenta.scrollFactor.x = 0;
-		magenta.scrollFactor.y = 0.10;
-		magenta.setGraphicSize(Std.int(magenta.width * 1.1));
+		magenta.scrollFactor.y = 0;
+		magenta.setGraphicSize(Std.int(magenta.width * 1));
 		magenta.updateHitbox();
-		magenta.screenCenter();
+		//magenta.screenCenter();
 		magenta.visible = false;
 		magenta.antialiasing = true;
 		magenta.color = 0xFFfd719b;
-		add(magenta);
+		//add(magenta);
+		
+
+		camFollow = new FlxObject(0, 0, 1, 1);
+
+		add(camFollow);
+				
+
+		add(backdrop = new FlxBackdrop(Paths.image('scrolling_BG')));
+		backdrop.velocity.set(-40, -40);
 
 
+		logo = new FlxSprite(-700, -359).loadGraphic(Paths.image('Credits_LeftSide'));
+		add(logo);
+
+
+		
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
@@ -108,12 +118,13 @@ class CreditsMenu extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(20  + (i * 480), 520);
+			var menuItem:FlxSprite = new FlxSprite(40, 390  + (i * 40));
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " White", 24);
+			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
+			menuItem.scale.set(1.5, 1.5);
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			menuItem.scrollFactor.set();
@@ -128,12 +139,13 @@ class CreditsMenu extends MusicBeatState
 
 		for (i in 0...creditshit.length)
 		{
-			var crediticon:FlxSprite = new FlxSprite(20  + (i * 480), 420);
+			var crediticon:FlxSprite = new FlxSprite(720, 200);
 			crediticon.frames = tex;
 			crediticon.animation.addByPrefix('idle', creditshit[i] + " basic", 24);
 			crediticon.animation.addByPrefix('selected', creditshit[i] + " white", 24);
 			crediticon.animation.play('idle');
 			crediticon.ID = i;
+			crediticon.scale.set(3, 3);
 			crediticons.add(crediticon);
 			crediticon.scrollFactor.set();
 			crediticon.antialiasing = true;
@@ -173,13 +185,13 @@ class CreditsMenu extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (controls.LEFT_P)
+			if (controls.UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.RIGHT_P)
+			if (controls.DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
@@ -202,39 +214,72 @@ class CreditsMenu extends MusicBeatState
 				}
 				else
 				{
-					if (optionShit[curSelected] == 'shady')
+					if (optionShit[curSelected] == 'Tokyo')
 					{
 						#if linux
-						Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/channel/UC-90KuSWRVLImW4xHWFYMnQ", "&"]);
+						Sys.command('/usr/bin/xdg-open', ["https://twitter.com/TokyoGalaxyOG", "&"]);
 						#else
-						FlxG.openURL('https://www.youtube.com/channel/UC-90KuSWRVLImW4xHWFYMnQ');
+						FlxG.openURL('https://twitter.com/TokyoGalaxyOG');
 						#end
-				}
-				else
-				{
-					if (optionShit[curSelected] == 'jorge' && FlxG.keys.pressed.DOWN)
+					}
+					else
 					{
-						#if linux
-						Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/watch?v=0MW9Nrg_kZU", "&"]);
-						#else
-						FlxG.openURL('https://www.youtube.com/watch?v=0MW9Nrg_kZU');
-						#end
-				}
-				else
-				{
-						if (optionShit[curSelected] == 'jorge')
+						if (optionShit[curSelected] == 'Jorge' && FlxG.keys.pressed.G)
 						{
 							#if linux
-							Sys.command('/usr/bin/xdg-open', ["https://twitter.com/Jorge_SunSpirit", "&"]);
+							Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/watch?v=0MW9Nrg_kZU", "&"]);
 							#else
-							FlxG.openURL('https://twitter.com/Jorge_SunSpirit');
+							FlxG.openURL('https://www.youtube.com/watch?v=0MW9Nrg_kZU');
 							#end
+						}
+						else
+						{
+							if (optionShit[curSelected] == 'Jorge')
+							{
+								#if linux
+								Sys.command('/usr/bin/xdg-open', ["https://twitter.com/Jorge_SunSpirit", "&"]);
+								#else
+								FlxG.openURL('https://twitter.com/Jorge_SunSpirit');
+								#end
+							}
+							else
+							{
+									if (optionShit[curSelected] == 'celeste')
+									{
+										#if linux
+										Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ", "&"]);
+										#else
+										FlxG.openURL('https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ');
+										#end
+									}
+								else
+								{
+									if (optionShit[curSelected] == 'aether')
+									{
+										#if linux
+										Sys.command('/usr/bin/xdg-open', ["https://twitter.com/AetherDX", "&"]);
+										#else
+										FlxG.openURL('https://twitter.com/AetherDX');
+										#end
+									}
+										else
+										{
+											if (optionShit[curSelected] == 'diff')
+											{
+												#if linux
+												Sys.command('/usr/bin/xdg-open', ["https://diffraktor.newgrounds.com/", "&"]);
+												#else
+												FlxG.openURL('https://diffraktor.newgrounds.com/');
+												#end
+											}
+										}
+								}
+							}
 						}
 					}
 				}
 			}
 		}
-	}
 		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
@@ -248,10 +293,10 @@ class CreditsMenu extends MusicBeatState
 		{
 			curSelected += huh;
 
-			if (curSelected >= 3)
+			if (curSelected >= 6)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = 3 - 1;
+				curSelected = 6 - 1;
 				
 			menuItems.forEach(function(spr:FlxSprite)
 			{
@@ -260,7 +305,7 @@ class CreditsMenu extends MusicBeatState
 				if (spr.ID == curSelected)
 				{
 					spr.animation.play('selected');
-					camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+					//camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 				}
 
 				spr.updateHitbox();
@@ -273,7 +318,7 @@ class CreditsMenu extends MusicBeatState
 				if (spr.ID == curSelected)
 				{
 					spr.animation.play('selected');
-					camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+					//camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 				}
 
 				spr.updateHitbox();
