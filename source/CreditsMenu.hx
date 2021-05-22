@@ -36,13 +36,13 @@ class CreditsMenu extends MusicBeatState
 	var fixdiff:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['duster', 'Tokyo', 'Jorge', 'aether', 'celeste', 'diff'];
+	var optionShit:Array<String> = ['duster', 'Tokyo', 'aether', 'Jorge', 'celeste', 'diff'];
 	#else
 	var optionShit:Array<String> = ['duster'];
 	#end
 
 	#if !switch
-	var creditshit:Array<String> = ['icond', 'icont', 'iconj', 'icona', 'iconc', 'icondi'];
+	var creditshit:Array<String> = ['icond', 'icont', 'icona', 'iconj', 'iconc', 'icondi'];
 	#else
 	var creditshit:Array<String> = ['icond'];
 	#end
