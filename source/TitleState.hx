@@ -408,10 +408,10 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['This mod is not suitable', 'for children']);
+					createCoolText(['Kade Engine', 'by']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('or easily disturbed people');
+					addMoreText('KadeDeveloper');
 				else
 				{
 					addMoreText('Newgrounds');
