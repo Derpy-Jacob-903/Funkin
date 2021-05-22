@@ -43,7 +43,7 @@ class DialogueBox extends FlxSpriteGroup
 			case 'senpai':
 				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-		    case 'high school conflict':
+			case 'high school conflict':
 				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
@@ -68,18 +68,18 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'high school conflict':
+			case 'senpai':
 				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 				box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 
 				handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
 				add(handSelect);
-			case 'senpai':
+			case 'high school conflict':
 				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 				box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
@@ -213,11 +213,11 @@ class DialogueBox extends FlxSpriteGroup
 
 					switch (PlayState.SONG.song.toLowerCase())
 					{
-						case 'high school conflict':
-							FlxG.sound.music.fadeOut(2.2, 0);
 						case 'senpai':
 							FlxG.sound.music.fadeOut(2.2, 0);
 						case 'thorns':
+							FlxG.sound.music.fadeOut(2.2, 0);
+						case 'high school conflict':
 							FlxG.sound.music.fadeOut(2.2, 0);
 					}
 
