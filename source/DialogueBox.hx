@@ -43,6 +43,9 @@ class DialogueBox extends FlxSpriteGroup
 			case 'senpai':
 				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'high school conflict':
+				FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
@@ -70,6 +73,21 @@ class DialogueBox extends FlxSpriteGroup
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'high school conflict':
+					hasDialog = true;
+					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
+					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'dreams of roses':
+					hasDialog = true;
+					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
+					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'your demise':
+				    hasDialog = true;
+					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
+					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 			case 'roses':
 				hasDialog = true;
 				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
@@ -94,6 +112,8 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
+		if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')
+			{
 		portraitLeft = new FlxSprite(-20, 40);
 		portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
 		portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
@@ -102,7 +122,18 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.scrollFactor.set();
 		add(portraitLeft);
 		portraitLeft.visible = false;
-
+			}
+		else if (PlayState.SONG.song.toLowerCase()=='high school conflict' ||  PlayState.SONG.song.toLowerCase()=='dreams of roses' ||  PlayState.SONG.song.toLowerCase()=='your demise')
+			{
+		portraitLeft = new FlxSprite(-20, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('weeb/monikaPortrait');
+		portraitLeft.animation.addByPrefix('enter', 'Monika Portrait Enter instance', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+		portraitLeft.updateHitbox();
+		portraitLeft.scrollFactor.set();
+		add(portraitLeft);
+		portraitLeft.visible = false;
+			}
 		portraitRight = new FlxSprite(0, 40);
 		portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
 		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
@@ -119,7 +150,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		box.screenCenter(X);
 		portraitLeft.screenCenter(X);
-
+			
 		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
 		add(handSelect);
 
