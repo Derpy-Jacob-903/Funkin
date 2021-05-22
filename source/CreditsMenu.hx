@@ -267,9 +267,9 @@ class CreditsMenu extends MusicBeatState
 											if (optionShit[curSelected] == 'diff')
 											{
 												#if linux
-												Sys.command('/usr/bin/xdg-open', ["https://diffraktor.newgrounds.com/", "&"]);
+												Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/c/diffraktor/", "&"]);
 												#else
-												FlxG.openURL('https://diffraktor.newgrounds.com/');
+												FlxG.openURL('https://www.youtube.com/c/diffraktor/');
 												#end
 											}
 										}
