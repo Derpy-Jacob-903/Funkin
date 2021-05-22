@@ -148,7 +148,7 @@ class CreditsMenu extends MusicBeatState
 			crediticon.scale.set(3, 3);
 			crediticons.add(crediticon);
 			crediticon.scrollFactor.set();
-			crediticon.antialiasing = true;
+			crediticon.antialiasing = false;
 		}
 		
 
