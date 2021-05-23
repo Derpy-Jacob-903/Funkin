@@ -139,13 +139,13 @@ class CreditsMenu extends MusicBeatState
 
 		for (i in 0...creditshit.length)
 		{
-			var crediticon:FlxSprite = new FlxSprite(720, 200);
+			var crediticon:FlxSprite = new FlxSprite(520, 50);
 			crediticon.frames = tex;
 			crediticon.animation.addByPrefix('idle', creditshit[i] + " basic", 24);
 			crediticon.animation.addByPrefix('selected', creditshit[i] + " white", 24);
 			crediticon.animation.play('idle');
 			crediticon.ID = i;
-			crediticon.scale.set(3, 3);
+			crediticon.scale.set(.5, .5);
 			crediticons.add(crediticon);
 			crediticon.scrollFactor.set();
 			crediticon.antialiasing = false;
