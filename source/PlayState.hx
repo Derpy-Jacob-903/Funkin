@@ -337,6 +337,10 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
 		    case 'high school conflict':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
+			case 'dreams of roses':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesDialogue'));
+			case 'your demise':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
 		}
 
 		switch(SONG.stage)
