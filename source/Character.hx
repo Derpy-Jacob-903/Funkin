@@ -520,7 +520,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Monika RIGHT NOTE', 24, false);
 				animation.addByPrefix('singDOWN', 'Monika DOWN NOTE', 24, false);
 
-
+				animation.addByPrefix('idle-alt', 'Angry Senpai Idle', 24, false);
 				animation.addByPrefix('singUP-alt', 'Angry Senpai UP NOTE', 24, false);
 				animation.addByPrefix('singDOWN-alt', 'Angry Senpai DOWN NOTE', 24, false);
 				animation.addByPrefix('singLEFT-alt', 'Angry Senpai LEFT NOTE', 24, false);
@@ -532,6 +532,7 @@ class Character extends FlxSprite
 				addOffset("singLEFT", 40);
 				addOffset("singDOWN", 14);
 
+				addOffset('idle-alt');
 				addOffset("singUP-alt", 5, 37);
 				addOffset("singRIGHT-alt");
 				addOffset("singLEFT-alt", 40);

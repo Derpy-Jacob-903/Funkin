@@ -115,8 +115,8 @@ class DialogueBox extends FlxSpriteGroup
 		if (PlayState.SONG.song.toLowerCase()=='high school conflict' || PlayState.SONG.song.toLowerCase()=='dreams of roses' || PlayState.SONG.song.toLowerCase()=='your demise')
 			{
 		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.frames = Paths.getSparrowAtlas('weeb/monikaPortrait');
-		portraitLeft.animation.addByPrefix('enter', 'Monika Portrait Enter instance', 24, false);
+		portraitLeft.frames = Paths.getSparrowAtlas('weeb/monika');
+		portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 		portraitLeft.updateHitbox();
 		portraitLeft.scrollFactor.set();
@@ -124,8 +124,8 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.visible = false;
 			}
 		portraitRight = new FlxSprite(0, 40);
-		portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
-		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
+		portraitRight.frames = Paths.getSparrowAtlas('weeb/bf');
+		portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 		portraitRight.updateHitbox();
 		portraitRight.scrollFactor.set();
@@ -254,19 +254,85 @@ class DialogueBox extends FlxSpriteGroup
 
 		switch (curCharacter)
 		{
-			case 'dad':
+			case 'monika':
 				portraitRight.visible = false;
+				portraitLeft.visible = false;
 				if (!portraitLeft.visible)
 				{
 					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/monika');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 					portraitLeft.animation.play('enter');
 				}
-			case 'bf':
+			case 'monikahappy':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/monikahappy');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitLeft.animation.play('enter');
+				}
+			case 'monikagasp':
+				portraitRight.visible = false;
 				portraitLeft.visible = false;
 				if (!portraitRight.visible)
 				{
 					portraitRight.visible = true;
+					portraitRight.frames = Paths.getSparrowAtlas('weeb/monikagasp');
+					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 					portraitRight.animation.play('enter');
+				}
+			case 'monikasad':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+					portraitRight.frames = Paths.getSparrowAtlas('weeb/monikasad');
+					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitRight.animation.play('enter');
+				}
+			case 'bf':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+					portraitRight.frames = Paths.getSparrowAtlas('weeb/bf');
+					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitRight.animation.play('enter');
+				}
+			case 'bfwhat':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+					portraitRight.frames = Paths.getSparrowAtlas('weeb/bfwhat');
+					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitRight.animation.play('enter');
+				}
+			case 'senpai':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpai');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitLeft.animation.play('enter');
+				}
+			case 'whodis':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/whodis');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitLeft.animation.play('enter');
 				}
 		}
 	}
