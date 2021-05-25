@@ -31,6 +31,8 @@ class HealthIcon extends FlxSprite
 		animation.add('senpai-angry', [22, 22], 0, false, isPlayer);
 		animation.add('spirit', [23, 23], 0, false, isPlayer);
 		animation.add('monika', [24, 25], 0, false, isPlayer);
+		animation.add('monika-senpai', [26, 27], 0, false, isPlayer);
+		animation.add('monika-angry', [28, 29], 0, false, isPlayer);
 
 		//animation.add('monikasenpai', [25, 26], 0, false, isPlayer);
 		//animation.add('bigmonika', [27, 28], 0, false, isPlayer);
