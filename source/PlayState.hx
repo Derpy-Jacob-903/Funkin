@@ -68,6 +68,8 @@ class PlayState extends MusicBeatState
 {
 	public static var instance:PlayState = null;
 
+	public static var showCutscene:Bool = true;
+
 	public static var curStage:String = '';
 	public static var SONG:SwagSong;
 	public static var isStoryMode:Bool = false;
@@ -1044,7 +1046,12 @@ class PlayState extends MusicBeatState
 				case 'dreams of roses':
 					schoolIntro(doof);
 				case 'your demise':
-					GFScary(doof);
+					if (showCutscene)
+						{
+							GFScary(doof);
+						} else {
+							DarkStart(doof);
+						}
 				default:
 					startCountdown();
 			}
@@ -1161,6 +1168,7 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		showCutscene = false;
 		inCutscene = false;
 
 		generateStaticArrows(0);
@@ -2526,6 +2534,7 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
+					showCutscene = true;
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
 			}
