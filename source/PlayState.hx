@@ -1053,6 +1053,8 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
+				case 'your demise':
+					DarkStart(doof);
 				default:
 					startCountdown();
 			}
@@ -1088,15 +1090,22 @@ class PlayState extends MusicBeatState
 					camHUD.visible = true;
 					FlxG.camera.zoom = defaultCamZoom;
 					FlxG.camera.fade(FlxColor.BLACK, 0, false);
-					FlxG.camera.fade(FlxColor.BLACK, 2, true, function()
+					new FlxTimer().start(2, function(godlike:FlxTimer)
 						{
 							add(dialogueBox);
-						}, true);
+						});
 				});
 		}
 		else
 		startCountdown();
 	}	
+
+
+	function DarkStart(?dialogueBox:DialogueBox):Void
+		{
+			FlxG.camera.fade(FlxColor.BLACK, 0, false);
+			startCountdown();
+		}	
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -3341,6 +3350,17 @@ class PlayState extends MusicBeatState
 			// dad.dance();
 		}
 
+
+		if (SONG.song.toLowerCase() == 'your demise')
+			{
+				if (curStep == 132)
+				{
+					FlxG.camera.fade(FlxColor.BLACK, 0, true, function(){}, true);
+					FlxG.camera.fade(FlxColor.WHITE, 0, false);
+					FlxG.camera.fade(FlxColor.WHITE, 0.2, true, function(){}, true);
+				}
+	
+			}
 
 		// yes this updates every step.
 		// yes this is bad

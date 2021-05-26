@@ -280,6 +280,36 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 					portraitRight.animation.play('enter');
 				}
+				case 'monikagaspleft':
+					portraitRight.visible = false;
+					portraitLeft.visible = false;
+					if (!portraitRight.visible)
+					{
+						portraitRight.visible = true;
+						portraitRight.frames = Paths.getSparrowAtlas('weeb/monikagaspleft');
+						portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+						portraitRight.animation.play('enter');
+					}
+				case 'monikahmm':
+					portraitRight.visible = false;
+					portraitLeft.visible = false;
+					if (!portraitRight.visible)
+						{
+							portraitRight.visible = true;
+							portraitRight.frames = Paths.getSparrowAtlas('weeb/monikahmm');
+							portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+							portraitRight.animation.play('enter');
+						}
+				case 'monikauhoh':
+					portraitRight.visible = false;
+					portraitLeft.visible = false;
+					if (!portraitRight.visible)
+						{
+							portraitRight.visible = true;
+							portraitRight.frames = Paths.getSparrowAtlas('weeb/monikauhoh');
+							portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+							portraitRight.animation.play('enter');
+						}
 			case 'monikasad':
 				portraitRight.visible = false;
 				portraitLeft.visible = false;
@@ -310,6 +340,16 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 					portraitRight.animation.play('enter');
 				}
+			case 'bfangry':
+					portraitRight.visible = false;
+					portraitLeft.visible = false;
+					if (!portraitRight.visible)
+					{
+						portraitRight.visible = true;
+						portraitRight.frames = Paths.getSparrowAtlas('weeb/bfangry');
+						portraitRight.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+						portraitRight.animation.play('enter');
+					}
 			case 'senpai':
 				portraitRight.visible = false;
 				portraitLeft.visible = false;
