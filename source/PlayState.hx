@@ -1140,7 +1140,7 @@ class PlayState extends MusicBeatState
 				if (dialogueBox != null)
 				{
 					inCutscene = true;
-					
+				}
 					else
 					{
 						add(dialogueBox);
