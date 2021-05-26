@@ -1108,24 +1108,15 @@ class PlayState extends MusicBeatState
 		red.scrollFactor.set();
 
 
-		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorns' || SONG.song.toLowerCase() == 'dreams-of-roses' || SONG.song.toLowerCase() == 'your-demise')
+		if (SONG.song.toLowerCase() == 'dreams-of-roses' || SONG.song.toLowerCase() == 'your-demise')
 		{
 			remove(black);
-
-			if (SONG.song.toLowerCase() == 'thorns')
-			{
-				add(red);
-			}
-		}
-
-		
+		}	
 		if (SONG.song.toLowerCase() == 'high-school-conflict')
 			{
 				remove(black);
 	
 			}
-	
-
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
@@ -1138,21 +1129,17 @@ class PlayState extends MusicBeatState
 			else
 			{
 				if (dialogueBox != null)
-				{
-					inCutscene = true;
-				}
-					else
 					{
+						inCutscene = true;
 						add(dialogueBox);
-					}
-				}
-				else
-					startCountdown();
 
-				remove(black);
-			}
-		});
-	}
+					}
+					else
+					startCountdown();
+					remove(black);
+				}
+			});
+		}
 
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
