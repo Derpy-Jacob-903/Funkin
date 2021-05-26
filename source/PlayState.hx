@@ -1044,7 +1044,7 @@ class PlayState extends MusicBeatState
 				case 'dreams of roses':
 					schoolIntro(doof);
 				case 'your demise':
-					schoolIntro(doof);
+					GFScary(doof);
 				default:
 					startCountdown();
 			}
@@ -1064,6 +1064,40 @@ class PlayState extends MusicBeatState
 		super.create();
 	}
 
+	function GFScary(?dialogueBox:DialogueBox):Void
+	{
+		var GFFakeout:FlxSprite = new FlxSprite();
+		GFFakeout.frames = Paths.getSparrowAtlas('GF_Fakeout_Cryemoji');
+		GFFakeout.animation.addByPrefix('idle', 'GFFakeout', 24, false);
+		GFFakeout.setGraphicSize(Std.int(GFFakeout.width * 0.96));
+		GFFakeout.scrollFactor.set();
+		GFFakeout.updateHitbox();
+		GFFakeout.screenCenter();
+		add(GFFakeout);
+		
+
+		if (dialogueBox != null)
+		{
+			inCutscene = true;
+			GFFakeout.animation.play('idle');
+			FlxG.sound.play(Paths.sound('GFFakeout'));
+			camHUD.visible = false;
+			new FlxTimer().start(22, function(swagTimer:FlxTimer) 
+				{
+					remove(GFFakeout);
+					camHUD.visible = true;
+					FlxG.camera.zoom = defaultCamZoom;
+					FlxG.camera.fade(FlxColor.BLACK, 0, false);
+					FlxG.camera.fade(FlxColor.BLACK, 2, true, function()
+						{
+							add(dialogueBox);
+						}, true);
+				});
+		}
+		else
+		startCountdown();
+	}	
+
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
 		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
@@ -1073,15 +1107,8 @@ class PlayState extends MusicBeatState
 		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0xFFff1b31);
 		red.scrollFactor.set();
 
-		var senpaiEvil:FlxSprite = new FlxSprite();
-		senpaiEvil.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
-		senpaiEvil.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
-		senpaiEvil.setGraphicSize(Std.int(senpaiEvil.width * 6));
-		senpaiEvil.scrollFactor.set();
-		senpaiEvil.updateHitbox();
-		senpaiEvil.screenCenter();
 
-		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorns')
+		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorns' || SONG.song.toLowerCase() == 'dreams-of-roses' || SONG.song.toLowerCase() == 'your-demise')
 		{
 			remove(black);
 
@@ -1113,37 +1140,7 @@ class PlayState extends MusicBeatState
 				if (dialogueBox != null)
 				{
 					inCutscene = true;
-
-					if (SONG.song.toLowerCase() == 'thorns')
-					{
-						add(senpaiEvil);
-						senpaiEvil.alpha = 0;
-						new FlxTimer().start(0.3, function(swagTimer:FlxTimer)
-						{
-							senpaiEvil.alpha += 0.15;
-							if (senpaiEvil.alpha < 1)
-							{
-								swagTimer.reset();
-							}
-							else
-							{
-								senpaiEvil.animation.play('idle');
-								FlxG.sound.play(Paths.sound('Senpai_Dies'), 1, false, null, true, function()
-								{
-									remove(senpaiEvil);
-									remove(red);
-									FlxG.camera.fade(FlxColor.WHITE, 0.01, true, function()
-									{
-										add(dialogueBox);
-									}, true);
-								});
-								new FlxTimer().start(3.2, function(deadTime:FlxTimer)
-								{
-									FlxG.camera.fade(FlxColor.WHITE, 1.6, false);
-								});
-							}
-						});
-					}
+					
 					else
 					{
 						add(dialogueBox);
