@@ -92,6 +92,9 @@ class PlayState extends MusicBeatState
 
 	var halloweenLevel:Bool = false;
 
+	var doof:DialogueBox;
+	var doof2:DialogueBox;
+
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
 	
@@ -156,6 +159,7 @@ class PlayState extends MusicBeatState
 	var currentFrames:Int = 0;
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	public var enddialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -342,6 +346,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
 			case 'dreams of roses':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesDialogue'));
+				enddialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
 			case 'your demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
 		}
@@ -362,7 +367,6 @@ class PlayState extends MusicBeatState
 				halloweenBG.animation.play('idle');
 				halloweenBG.antialiasing = true;
 				add(halloweenBG);
-
 				isHalloween = true;
 			}
 			case 'philly': 
@@ -858,6 +862,10 @@ class PlayState extends MusicBeatState
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
 
+		doof2 = new DialogueBox(false, enddialogue);
+		doof2.scrollFactor.set();
+		doof2.finishThing = endSong;
+
 		Conductor.songPosition = -5000;
 		
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
@@ -986,6 +994,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		doof2.cameras = [camHUD];
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1112,7 +1121,17 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.camera.fade(FlxColor.BLACK, 0, false);
 			startCountdown();
-		}	
+		}
+		
+	function roseend(?dialogueBox:DialogueBox):Void
+		{
+			if (dialogueBox != null)
+				{
+					inCutscene = true;
+					add(dialogueBox);
+				}
+			trace(inCutscene);
+		}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -1151,8 +1170,11 @@ class PlayState extends MusicBeatState
 
 					}
 					else
-					startCountdown();
-					remove(black);
+						{
+							trace(dialogueBox);
+							startCountdown();
+							remove(black);
+						}
 				}
 			});
 		}
@@ -1307,7 +1329,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 		}
 
-		FlxG.sound.music.onComplete = endSong;
+		FlxG.sound.music.onComplete = songOutro;
 		vocals.play();
 
 		// Song duration in a float, useful for the time left feature
@@ -2426,6 +2448,33 @@ class PlayState extends MusicBeatState
 			endSong();
 		#end
 	}
+
+	function songOutro():Void
+		{
+			FlxG.sound.music.volume = 0;
+			vocals.volume = 0;
+			canPause = false;
+
+			if (isStoryMode)
+			{
+				switch (curSong.toLowerCase())
+				{
+					case 'dreams of roses':
+						roseend(doof2);
+					default:
+						endSong();
+				}
+			}
+			else
+				{
+					switch (curSong.toLowerCase())
+					{
+						default:
+							endSong();
+					}
+				}
+				
+		}
 
 	function endSong():Void
 	{
