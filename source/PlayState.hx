@@ -741,6 +741,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'gf-doki':
 				gfVersion = 'gf-doki';
+				case 'no-gf':
+					gfVersion = 'no-gf';
 			default:
 				gfVersion = 'gf';
 		}
