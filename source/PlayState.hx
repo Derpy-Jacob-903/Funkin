@@ -176,6 +176,8 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
+	var blackScreen:FlxSprite;
+
 	var altAnim:String = "";
 	var fc:Bool = true;
 
@@ -313,6 +315,9 @@ class PlayState extends MusicBeatState
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
+
+		blackScreen = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+		blackScreen.scrollFactor.set();
 
 		trace('INFORMATION ABOUT WHAT U PLAYIN WIT:\nFRAMES: ' + Conductor.safeFrames + '\nZONE: ' + Conductor.safeZoneOffset + '\nTS: ' + Conductor.timeScale + '\nBotPlay : ' + FlxG.save.data.botplay);
 	
@@ -622,12 +627,13 @@ class PlayState extends MusicBeatState
 			{
 					curStage = 'schoolEvil';
 
-					var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
-					var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
 
-					var posX = 400;
-					var posY = 200;
+					//var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
+					//var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
 
+					var posX = 480;
+					var posY = 300;
+					/*
 					var bg:FlxSprite = new FlxSprite(posX, posY);
 					bg.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool','week6');
 					bg.animation.addByPrefix('idle', 'background 2', 24);
@@ -635,44 +641,19 @@ class PlayState extends MusicBeatState
 					bg.scrollFactor.set(0.8, 0.9);
 					bg.scale.set(6, 6);
 					add(bg);
+					*/
 
-					/* 
-							var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolBG'));
-							bg.scale.set(6, 6);
-							// bg.setGraphicSize(Std.int(bg.width * 6));
-							// bg.updateHitbox();
-							add(bg);
-							var fg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolFG'));
-							fg.scale.set(6, 6);
-							// fg.setGraphicSize(Std.int(fg.width * 6));
-							// fg.updateHitbox();
-							add(fg);
-							wiggleShit.effectType = WiggleEffectType.DREAMY;
-							wiggleShit.waveAmplitude = 0.01;
-							wiggleShit.waveFrequency = 60;
-							wiggleShit.waveSpeed = 0.8;
-						*/
+					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolBG','week6'));
+					bg.antialiasing = false;
+					bg.scale.set(4.5, 4.5);
+					bg.scrollFactor.set(0.6, 0.90);
+					add(bg);
 
-					// bg.shader = wiggleShit.shader;
-					// fg.shader = wiggleShit.shader;
-
-					/* 
-								var waveSprite = new FlxEffectSprite(bg, [waveEffectBG]);
-								var waveSpriteFG = new FlxEffectSprite(fg, [waveEffectFG]);
-								// Using scale since setGraphicSize() doesnt work???
-								waveSprite.scale.set(6, 6);
-								waveSpriteFG.scale.set(6, 6);
-								waveSprite.setPosition(posX, posY);
-								waveSpriteFG.setPosition(posX, posY);
-								waveSprite.scrollFactor.set(0.7, 0.8);
-								waveSpriteFG.scrollFactor.set(0.9, 0.8);
-								// waveSprite.setGraphicSize(Std.int(waveSprite.width * 6));
-								// waveSprite.updateHitbox();
-								// waveSpriteFG.setGraphicSize(Std.int(fg.width * 6));
-								// waveSpriteFG.updateHitbox();
-								add(waveSprite);
-								add(waveSpriteFG);
-						*/
+					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolFG','week6'));
+					stageFront.antialiasing = false;
+					stageFront.scale.set(4.5, 4.5);
+					stageFront.scrollFactor.set(0.95, 0.95);
+					add(stageFront);
 			}
 			case 'stage':
 				{
@@ -1107,7 +1088,7 @@ class PlayState extends MusicBeatState
 					remove(GFFakeout);
 					camHUD.visible = true;
 					FlxG.camera.zoom = defaultCamZoom;
-					FlxG.camera.fade(FlxColor.BLACK, 0, false);
+					add(blackScreen);
 					new FlxTimer().start(2, function(godlike:FlxTimer)
 						{
 							add(dialogueBox);
@@ -1121,7 +1102,7 @@ class PlayState extends MusicBeatState
 
 	function DarkStart(?dialogueBox:DialogueBox):Void
 		{
-			FlxG.camera.fade(FlxColor.BLACK, 0, false);
+			add(blackScreen);
 			startCountdown();
 		}
 		
@@ -1230,11 +1211,12 @@ class PlayState extends MusicBeatState
 			introAssets.set('schoolEvil', [
 				'weeb/pixelUI/ready-pixel',
 				'weeb/pixelUI/set-pixel',
-				'weeb/pixelUI/date-pixel'
+				'weeb/pixelUI/demise-date'
 			]);
 
 			var introAlts:Array<String> = introAssets.get('default');
 			var altSuffix:String = "";
+			var glitchSuffix:String = "";
 
 			for (value in introAssets.keys())
 			{
@@ -1242,6 +1224,7 @@ class PlayState extends MusicBeatState
 				{
 					introAlts = introAssets.get(value);
 					altSuffix = '-pixel';
+					glitchSuffix = '-glitch';
 				}
 			}
 
@@ -1249,7 +1232,14 @@ class PlayState extends MusicBeatState
 
 			{
 				case 0:
-					FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+					if (curStage.startsWith('schoolEvil'))
+						{
+							FlxG.sound.play(Paths.sound('intro3' + glitchSuffix), 0.6);
+						}
+						else
+							{
+								FlxG.sound.play(Paths.sound('intro3' + altSuffix), 0.6);
+							}
 				case 1:
 					var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[0]));
 					ready.scrollFactor.set();
@@ -1267,7 +1257,14 @@ class PlayState extends MusicBeatState
 							ready.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+					if (curStage.startsWith('schoolEvil'))
+						{
+							FlxG.sound.play(Paths.sound('intro2' + glitchSuffix), 0.6);
+						}
+						else
+							{
+								FlxG.sound.play(Paths.sound('intro2' + altSuffix), 0.6);
+							}
 				case 2:
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
@@ -1284,7 +1281,14 @@ class PlayState extends MusicBeatState
 							set.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
+					if (curStage.startsWith('schoolEvil'))
+						{
+							FlxG.sound.play(Paths.sound('intro1' + glitchSuffix), 0.6);
+						}
+						else
+							{
+								FlxG.sound.play(Paths.sound('intro1' + altSuffix), 0.6);
+							}
 				case 3:
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
@@ -1303,7 +1307,14 @@ class PlayState extends MusicBeatState
 							go.destroy();
 						}
 					});
-					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+					if (curStage.startsWith('schoolEvil'))
+						{
+							FlxG.sound.play(Paths.sound('introGo' + glitchSuffix), 0.6);
+						}
+						else
+							{
+								FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
+							}
 				case 4:
 			}
 
@@ -3415,7 +3426,7 @@ class PlayState extends MusicBeatState
 			{
 				if (curStep == 132)
 				{
-					FlxG.camera.fade(FlxColor.BLACK, 0, true, function(){}, true);
+					remove(blackScreen);
 					FlxG.camera.fade(FlxColor.WHITE, 0, false);
 					FlxG.camera.fade(FlxColor.WHITE, 0.2, true, function(){}, true);
 				}
