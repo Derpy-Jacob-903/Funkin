@@ -94,6 +94,8 @@ class PlayState extends MusicBeatState
 
 	var doof:DialogueBox;
 	var doof2:DialogueBox;
+	var doof3:DialogueBox;
+	var doof4:DialogueBox;
 
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
@@ -159,7 +161,9 @@ class PlayState extends MusicBeatState
 	var currentFrames:Int = 0;
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
-	public var enddialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	public var extra1:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	public var extra2:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
+	public var extra3:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -316,7 +320,7 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
-		blackScreen = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+		blackScreen = new FlxSprite(-100, -100).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 100), FlxColor.BLACK);
 		blackScreen.scrollFactor.set();
 
 		trace('INFORMATION ABOUT WHAT U PLAYIN WIT:\nFRAMES: ' + Conductor.safeFrames + '\nZONE: ' + Conductor.safeZoneOffset + '\nTS: ' + Conductor.timeScale + '\nBotPlay : ' + FlxG.save.data.botplay);
@@ -351,7 +355,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
 			case 'dreams of roses':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesDialogue'));
-				enddialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
+				extra3 = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
 			case 'your demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
 		}
@@ -626,13 +630,13 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil':
 			{
 					curStage = 'schoolEvil';
-
+					defaultCamZoom = 0.9;
 
 					//var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
 					//var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
 
-					var posX = 480;
-					var posY = 300;
+					var posX = 50;
+					var posY = 200;
 					/*
 					var bg:FlxSprite = new FlxSprite(posX, posY);
 					bg.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool','week6');
@@ -643,15 +647,22 @@ class PlayState extends MusicBeatState
 					add(bg);
 					*/
 
-					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolBG','week6'));
+					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
+					space.antialiasing = false;
+					space.scale.set(1.5, 1.5);
+					space.scrollFactor.set(0.1, 0.1);
+					add(space);
+
+
+					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
 					bg.antialiasing = false;
-					bg.scale.set(4.5, 4.5);
-					bg.scrollFactor.set(0.6, 0.90);
+					bg.scale.set(1.5, 1.5);
+					bg.scrollFactor.set(0.6, 0.8);
 					add(bg);
 
-					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/evilSchoolFG','week6'));
+					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleFG','week6'));
 					stageFront.antialiasing = false;
-					stageFront.scale.set(4.5, 4.5);
+					stageFront.scale.set(1.5, 1.5);
 					stageFront.scrollFactor.set(0.95, 0.95);
 					add(stageFront);
 			}
@@ -722,8 +733,6 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'gf-doki':
 				gfVersion = 'gf-doki';
-				case 'no-gf':
-					gfVersion = 'no-gf';
 			default:
 				gfVersion = 'gf';
 		}
@@ -813,9 +822,9 @@ class PlayState extends MusicBeatState
 				// evilTrail.scrollFactor.set(1.1, 1.1);
 				}
 
-
+				dad.x += 220;
 				boyfriend.x += 200;
-				boyfriend.y += 220;
+				boyfriend.y += 260;
 				gf.x += 180;
 				gf.y += 300;
 		}
@@ -845,9 +854,17 @@ class PlayState extends MusicBeatState
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
 
-		doof2 = new DialogueBox(false, enddialogue);
+		doof2 = new DialogueBox(false, extra1);
 		doof2.scrollFactor.set();
-		doof2.finishThing = endSong;
+		//doof2.finishThing = endsong;
+
+		doof3 = new DialogueBox(false, extra2);
+		doof3.scrollFactor.set();
+		//doof3.finishThing = extra2;
+
+		doof4 = new DialogueBox(false, extra3);
+		doof4.scrollFactor.set();
+		doof4.finishThing = endSong;
 
 		Conductor.songPosition = -5000;
 		
@@ -978,6 +995,8 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		doof2.cameras = [camHUD];
+		doof3.cameras = [camHUD];
+		doof4.cameras = [camHUD];
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1070,7 +1089,7 @@ class PlayState extends MusicBeatState
 		var GFFakeout:FlxSprite = new FlxSprite();
 		GFFakeout.frames = Paths.getSparrowAtlas('GF_Fakeout_Cryemoji');
 		GFFakeout.animation.addByPrefix('idle', 'GFFakeout', 24, false);
-		GFFakeout.setGraphicSize(Std.int(GFFakeout.width * 0.96));
+		GFFakeout.setGraphicSize(Std.int(GFFakeout.width * 1.12));
 		GFFakeout.scrollFactor.set();
 		GFFakeout.updateHitbox();
 		GFFakeout.screenCenter();
@@ -1089,6 +1108,7 @@ class PlayState extends MusicBeatState
 					camHUD.visible = true;
 					FlxG.camera.zoom = defaultCamZoom;
 					add(blackScreen);
+					remove(gf);
 					new FlxTimer().start(2, function(godlike:FlxTimer)
 						{
 							add(dialogueBox);
@@ -1096,13 +1116,16 @@ class PlayState extends MusicBeatState
 				});
 		}
 		else
+			{
 		startCountdown();
+			}
 	}	
 
 
 	function DarkStart(?dialogueBox:DialogueBox):Void
 		{
 			add(blackScreen);
+			remove(gf);
 			startCountdown();
 		}
 		
@@ -1112,6 +1135,10 @@ class PlayState extends MusicBeatState
 				{
 					inCutscene = true;
 					add(dialogueBox);
+				}
+			else
+				{
+			endSong();
 				}
 			trace(inCutscene);
 		}
@@ -2108,7 +2135,14 @@ class PlayState extends MusicBeatState
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'monika':
 						camFollow.y = dad.getMidpoint().y - 430;
-						camFollow.x = dad.getMidpoint().x - 100;
+						switch (curSong.toLowerCase())
+							{
+								case 'your demise':
+									camFollow.x = dad.getMidpoint().x - 150;
+								default:
+									camFollow.x = dad.getMidpoint().x - 100;
+							}
+						
 				}
 
 				if (dad.curCharacter == 'mom')
@@ -2473,7 +2507,7 @@ class PlayState extends MusicBeatState
 				switch (curSong.toLowerCase())
 				{
 					case 'dreams of roses':
-						roseend(doof2);
+						roseend(doof4);
 					default:
 						endSong();
 				}

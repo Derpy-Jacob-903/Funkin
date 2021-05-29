@@ -1,4 +1,3 @@
 gf
 gf-pixel
 gf-doki
-no-gf
