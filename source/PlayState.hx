@@ -2506,6 +2506,8 @@ class PlayState extends MusicBeatState
 			{
 				switch (curSong.toLowerCase())
 				{
+					case 'high school conflict':
+						roseend(doof4);
 					case 'dreams of roses':
 						roseend(doof4);
 					default:
