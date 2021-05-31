@@ -418,10 +418,10 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
+					createCoolText(['Powered', 'by']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
+					addMoreText('Kade Engine');
 				else
 				{
 					addMoreText('Newgrounds');
@@ -450,10 +450,10 @@ class TitleState extends MusicBeatState
 				addMoreText('Monika');
 			// credTextShit.visible = true;
 			case 14:
-				addMoreText('Monika');
+				addMoreText('Full');
 			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Monika'); // credTextShit.text += '\nFunkin';
+				addMoreText('Week'); // credTextShit.text += '\nFunkin';
 
 			case 16:
 				skipIntro();
