@@ -361,6 +361,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
 		}
 
+		trace(SONG.stage);
+
 		switch(SONG.stage)
 		{
 			case 'halloween': 
@@ -612,7 +614,7 @@ class PlayState extends MusicBeatState
 					bgTrees.updateHitbox();
 					treeLeaves.updateHitbox();
 
-					bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls = new BackgroundGirls(-600, 190);
 					bgGirls.scrollFactor.set(0.9, 0.9);
 
 					if (SONG.song.toLowerCase() == 'roses')
