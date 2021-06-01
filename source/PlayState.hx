@@ -2596,7 +2596,15 @@ class PlayState extends MusicBeatState
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					FlxG.switchState(new StoryMenuState());
+					if (SONG.song.toLowerCase() == 'your demise') {
+						FlxG.switchState(new CreditsMenu());
+					} else {
+						FlxG.switchState(new StoryMenuState());
+					}
+
+		
+
+				
 
 					#if windows
 					if (luaModchart != null)
