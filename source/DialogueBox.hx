@@ -80,6 +80,7 @@ class DialogueBox extends FlxSpriteGroup
 					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 			case 'dreams of roses':
 					hasDialog = true;
+					FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
 					box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-monika');
 					box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 					box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
