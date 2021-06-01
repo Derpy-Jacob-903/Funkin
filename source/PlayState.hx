@@ -614,21 +614,21 @@ class PlayState extends MusicBeatState
 					bgTrees.updateHitbox();
 					treeLeaves.updateHitbox();
 
-					bgGirls = new BackgroundGirls(-600, 190);
-					bgGirls.scrollFactor.set(0.9, 0.9);
+					// bgGirls = new BackgroundGirls(-600, 190);
+					// bgGirls.scrollFactor.set(0.9, 0.9);
 
-					if (SONG.song.toLowerCase() == 'roses')
-						{
-							if(FlxG.save.data.distractions){
-								bgGirls.getScared();
-							}
-						}
+					// if (SONG.song.toLowerCase() == 'roses')
+					// 	{
+					// 		if(FlxG.save.data.distractions){
+					// 			bgGirls.getScared();
+					// 		}
+					// 	}
 
-					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
-					bgGirls.updateHitbox();
-					if(FlxG.save.data.distractions){
-						add(bgGirls);
-					}
+					// bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+					// bgGirls.updateHitbox();
+					// if(FlxG.save.data.distractions){
+					// 	add(bgGirls);
+					// }
 			}
 			case 'schoolEvil':
 			{
@@ -725,6 +725,20 @@ class PlayState extends MusicBeatState
 			}
 		}
 		var gfVersion:String = 'gf';
+
+		trace(SONG.song.toLowerCase());
+		if (SONG.song.toLowerCase() == "dreams of roses")
+		{
+			bgGirls = new BackgroundGirls(-600, 190);
+			bgGirls.scrollFactor.set(0.9, 0.9);
+
+			bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+			bgGirls.updateHitbox();
+			if(FlxG.save.data.distractions){
+				add(bgGirls);
+			}
+		}
+
 
 		switch (SONG.gfVersion)
 		{
