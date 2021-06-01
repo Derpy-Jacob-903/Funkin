@@ -3581,13 +3581,11 @@ class PlayState extends MusicBeatState
 				dad.playAnim('cheer', true);
 			}
 
+		if (SONG.song.toLowerCase() == "dreams of roses")
+			bgGirls.dance();
+
 		switch (curStage)
 		{
-			case 'school':
-				if(FlxG.save.data.distractions){
-					bgGirls.dance();
-				}
-
 			case 'mall':
 				if(FlxG.save.data.distractions){
 					upperBoppers.animation.play('bop', true);
