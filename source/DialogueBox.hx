@@ -361,6 +361,26 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
 					portraitLeft.animation.play('enter');
 				}
+			case 'senpaihappy':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaihappy');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitLeft.animation.play('enter');
+				}
+			case 'senpaihmm':
+				portraitRight.visible = false;
+				portraitLeft.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+					portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaihmm');
+					portraitLeft.animation.addByPrefix('enter', 'Portrait Enter instance', 24, false);
+					portraitLeft.animation.play('enter');
+				}
 			case 'whodis':
 				portraitRight.visible = false;
 				portraitLeft.visible = false;

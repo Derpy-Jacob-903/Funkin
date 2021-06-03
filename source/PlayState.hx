@@ -171,7 +171,7 @@ class PlayState extends MusicBeatState
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
 	var phillyTrain:FlxSprite;
 	var trainSound:FlxSound;
-
+	var camend:FlxObject;
 	var limo:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
@@ -614,21 +614,19 @@ class PlayState extends MusicBeatState
 					bgTrees.updateHitbox();
 					treeLeaves.updateHitbox();
 
-					// bgGirls = new BackgroundGirls(-600, 190);
-					// bgGirls.scrollFactor.set(0.9, 0.9);
-
-					// if (SONG.song.toLowerCase() == 'roses')
-					// 	{
-					// 		if(FlxG.save.data.distractions){
-					// 			bgGirls.getScared();
-					// 		}
-					// 	}
-
-					// bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
-					// bgGirls.updateHitbox();
-					// if(FlxG.save.data.distractions){
-					// 	add(bgGirls);
-					// }
+					if (SONG.song.toLowerCase() == "dreams of roses")
+					{
+						bgGirls = new BackgroundGirls(-600, 190);
+						bgGirls.scrollFactor.set(0.9, 0.9);
+			
+						bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+						bgGirls.updateHitbox();
+						if(FlxG.save.data.distractions)
+							{
+								add(bgGirls);
+								bgGirls.dance();
+							}
+					}
 			}
 			case 'schoolEvil':
 			{
@@ -726,18 +724,6 @@ class PlayState extends MusicBeatState
 		}
 		var gfVersion:String = 'gf';
 
-		trace(SONG.song.toLowerCase());
-		if (SONG.song.toLowerCase() == "dreams of roses")
-		{
-			bgGirls = new BackgroundGirls(-600, 190);
-			bgGirls.scrollFactor.set(0.9, 0.9);
-
-			bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
-			bgGirls.updateHitbox();
-			if(FlxG.save.data.distractions){
-				add(bgGirls);
-			}
-		}
 
 
 		switch (SONG.gfVersion)
@@ -1148,9 +1134,15 @@ class PlayState extends MusicBeatState
 		
 	function roseend(?dialogueBox:DialogueBox):Void
 		{
+			inCutscene = true;
+			startedCountdown = false;
+			generatedMusic = false;
+			canPause = false;
+			vocals.stop();
+			FlxG.sound.music.stop();
 			if (dialogueBox != null)
 				{
-					inCutscene = true;
+					camFollow.setPosition(dad.getMidpoint().x + 100, boyfriend.getMidpoint().y - 250);
 					add(dialogueBox);
 				}
 			else
