@@ -14,7 +14,7 @@ DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) ⋅ [itch.io page](https:
 - [SirDusterBuster](https://twitter.com/SirDusterBuster) and [TokyoGalaxyOG](https://twitter.com/TokyoGalaxyOG) - Art
 - [CelShader](https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ) and [Diffraktor](https://twitter.com/Diffraktor) - Music
 
-## Special Thanks
+### Special Thanks
 
 - [Blantados](https://www.youtube.com/channel/UC4rwJYVeDHxGKnFDhHz88ZQ) - Vocals/Charting of "Your Reality"
 
