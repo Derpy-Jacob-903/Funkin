@@ -634,20 +634,8 @@ class PlayState extends MusicBeatState
 					curStage = 'schoolEvil';
 					defaultCamZoom = 0.9;
 
-					//var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
-					//var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
-
 					var posX = 50;
 					var posY = 200;
-					/*
-					var bg:FlxSprite = new FlxSprite(posX, posY);
-					bg.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool','week6');
-					bg.animation.addByPrefix('idle', 'background 2', 24);
-					bg.animation.play('idle');
-					bg.scrollFactor.set(0.8, 0.9);
-					bg.scale.set(6, 6);
-					add(bg);
-					*/
 
 					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
 					space.antialiasing = false;
@@ -665,7 +653,7 @@ class PlayState extends MusicBeatState
 					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleFG','week6'));
 					stageFront.antialiasing = false;
 					stageFront.scale.set(1.5, 1.5);
-					stageFront.scrollFactor.set(0.95, 0.95);
+					stageFront.scrollFactor.set(1, 1);
 					add(stageFront);
 			}
 			case 'stage':
@@ -826,7 +814,7 @@ class PlayState extends MusicBeatState
 				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
 				add(evilTrail);
 				}
-				dad.y -= 64;
+				dad.y -= 70.2;
 				dad.x += 230;
 				boyfriend.x += 200;
 				boyfriend.y += 260;
@@ -3471,50 +3459,6 @@ class PlayState extends MusicBeatState
 			luaModchart.executeState('stepHit',[curStep]);
 		}
 		#end
-
-		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
-		{
-			// dad.dance();
-		}
-/*
-		if (SONG.song.toLowerCase() == 'your demise')
-			{
-				switch(curStep)
-					{
-						//case 197:
-							//dad.playAnim('singLEFT-alt');
-						case 444:
-							dad.playAnim('singLEFT-alt');
-						case 447:
-							dad.playAnim('singRIGHT-alt');
-						case 549:
-							dad.playAnim('singUP-alt');
-						case 565:
-							dad.playAnim('singRIGHT-alt');
-						case 567:
-							dad.playAnim('singDOWN-alt');
-						case 572:
-							dad.playAnim('singLEFT-alt');
-						case 654:
-							dad.playAnim('singDOWN-alt');
-						case 693:
-							dad.playAnim('singRIGHT-alt');
-						case 802:
-							dad.playAnim('singUP-alt');
-						case 803:
-							dad.playAnim('singDOWN-alt');
-						case 818:
-							dad.playAnim('singLEFT-alt');
-						case 819:
-							dad.playAnim('singDOWN-alt');
-						case 820:
-							dad.playAnim('singUP-alt');
-						case 821:
-							dad.playAnim('singRIGHT-alt');
-					}
-			}
-*/
-
 
 		if (SONG.song.toLowerCase() == 'your demise')
 			{
