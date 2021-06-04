@@ -5,7 +5,7 @@
 
 FNF Links: **[itch.io page](https://ninja-muffin24.itch.io/funkin) ⋅ [Newgrounds](https://www.newgrounds.com/portal/view/770371) ⋅ [source code on GitHub](https://github.com/ninjamuffin99/Funkin)**
 
-DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) - [itch.io page](https://teamsalvato.itch.io/ddlc) - [Steam page](https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/)**
+DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) ⋅ [itch.io page](https://teamsalvato.itch.io/ddlc) ⋅ [Steam page](https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/)**
 
 # Credits
 
@@ -13,6 +13,10 @@ DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) - [itch.io page](https://
 - [AetherDX](https://twitter.com/AetherDX) and [Jorge_SunSpirit](https://twitter.com/Jorge_SunSpirit) - Programming
 - [SirDusterBuster](https://twitter.com/SirDusterBuster) and [TokyoGalaxyOG](https://twitter.com/TokyoGalaxyOG) - Art
 - [CelShader](https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ) and [Diffraktor](https://twitter.com/Diffraktor) - Music
+
+## Special Thanks
+
+- [Blantados](https://www.youtube.com/channel/UC4rwJYVeDHxGKnFDhHz88ZQ) - Vocals/Charting of "Your Reality"
 
 ### Friday Night Funkin'
  - [ninjamuffin99](https://twitter.com/ninja_muffin99) - Programming
