@@ -359,6 +359,7 @@ class PlayState extends MusicBeatState
 				extra3 = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
 			case 'your demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
+				extra3 = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseEndDialogue'));
 		}
 
 		trace(SONG.stage);
@@ -2518,6 +2519,8 @@ class PlayState extends MusicBeatState
 					case 'high school conflict':
 						roseend(doof4);
 					case 'dreams of roses':
+						roseend(doof4);
+					case 'your demise':
 						roseend(doof4);
 					default:
 						endSong();
