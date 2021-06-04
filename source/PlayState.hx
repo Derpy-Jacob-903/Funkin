@@ -3486,6 +3486,11 @@ class PlayState extends MusicBeatState
 					FlxG.camera.fade(FlxColor.WHITE, 0, false);
 					FlxG.camera.fade(FlxColor.WHITE, 0.2, true, function(){}, true);
 				}
+
+				if (curStep == 889)
+					{
+						FlxG.camera.fade(FlxColor.BLACK, 2, false);
+					}
 	
 			}
 
