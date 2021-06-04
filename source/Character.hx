@@ -577,6 +577,39 @@ class Character extends FlxSprite
 				updateHitbox();
 
 				antialiasing = false;
+			
+			case 'monika-angry':
+				frames = Paths.getSparrowAtlas('characters/Monika_Finale');
+				animation.addByPrefix('idle', 'MONIKA IDLE', 24, false);
+				animation.addByPrefix('singUP', 'MONIKA UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'MONIKA LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'MONIKA RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'MONIKA DOWN NOTE', 24, false);
+
+				animation.addByPrefix('singUP-alt', 'MONIKA UP GLITCH', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'MONIKA LEFT GLITCH', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'MONIKA RIGHT GLITCH', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'MONIKA DOWN GLITCH', 24, false);
+
+				addOffset('danceLeft');
+				addOffset('danceRight');
+
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				addOffset("singUP-alt", 60, -6);
+				addOffset("singRIGHT-alt", 60, -6);
+				addOffset("singLEFT-alt", 60, -6);
+				addOffset("singDOWN-alt", 60, -6);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				antialiasing = false;
 		}
 
 		dance();
@@ -705,6 +738,7 @@ class Character extends FlxSprite
 						playAnim('danceRight');
 					else
 						playAnim('danceLeft');
+				
 				default:
 					playAnim('idle');
 			}

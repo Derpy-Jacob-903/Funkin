@@ -780,6 +780,10 @@ class PlayState extends MusicBeatState
 				dad.x += 150;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'monika-angry':
+				dad.x += 150;
+				dad.y += 360;
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'senpai-angry':
 				dad.x += 150;
 				dad.y += 360;
@@ -817,16 +821,13 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'schoolEvil':
-				if(FlxG.save.data.distractions){
-				// trailArea.scrollFactor.set();
+				if(FlxG.save.data.distractions)
+				{
 				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				// evilTrail.changeValuesEnabled(false, false, false, false);
-				// evilTrail.changeGraphic()
 				add(evilTrail);
-				// evilTrail.scrollFactor.set(1.1, 1.1);
 				}
-
-				dad.x += 220;
+				dad.y -= 64;
+				dad.x += 230;
 				boyfriend.x += 200;
 				boyfriend.y += 260;
 				gf.x += 180;
@@ -1489,7 +1490,7 @@ class PlayState extends MusicBeatState
 				if (daStrumTime < 0)
 					daStrumTime = 0;
 				var daNoteData:Int = Std.int(songNotes[1] % 4);
-
+				
 				var gottaHitNote:Bool = section.mustHitSection;
 
 				if (songNotes[1] > 3)
@@ -1502,9 +1503,11 @@ class PlayState extends MusicBeatState
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 				else
 					oldNote = null;
-
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				
+				var daType = songNotes[3];
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, daType);
 				swagNote.sustainLength = songNotes[2];
+				
 				swagNote.scrollFactor.set(0, 0);
 
 				var susLength:Float = swagNote.sustainLength;
@@ -1516,7 +1519,7 @@ class PlayState extends MusicBeatState
 				{
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
-					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
+					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true, daType);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
 
@@ -2145,13 +2148,10 @@ class PlayState extends MusicBeatState
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'monika':
 						camFollow.y = dad.getMidpoint().y - 430;
-						switch (curSong.toLowerCase())
-							{
-								case 'your demise':
-									camFollow.x = dad.getMidpoint().x - 150;
-								default:
-									camFollow.x = dad.getMidpoint().x - 100;
-							}
+						camFollow.x = dad.getMidpoint().x - 100;
+					case 'monika-angry':
+						camFollow.y = dad.getMidpoint().y - 430;
+						camFollow.x = dad.getMidpoint().x - 150;
 						
 				}
 
@@ -2380,13 +2380,14 @@ class PlayState extends MusicBeatState
 							camZooming = true;
 
 						var altAnim:String = "";
-	
+
 						if (SONG.notes[Math.floor(curStep / 16)] != null)
 						{
 							if (SONG.notes[Math.floor(curStep / 16)].altAnim)
 								altAnim = '-alt';
 						}
-	
+						if (daNote.noteType == 1)
+							altAnim = '-alt';
 						switch (Math.abs(daNote.noteData))
 						{
 							case 2:
@@ -2400,7 +2401,6 @@ class PlayState extends MusicBeatState
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
 						}
-						
 						cpuStrums.forEach(function(spr:FlxSprite)
 						{
 							if (Math.abs(daNote.noteData) == spr.ID)
@@ -3476,6 +3476,44 @@ class PlayState extends MusicBeatState
 		{
 			// dad.dance();
 		}
+/*
+		if (SONG.song.toLowerCase() == 'your demise')
+			{
+				switch(curStep)
+					{
+						//case 197:
+							//dad.playAnim('singLEFT-alt');
+						case 444:
+							dad.playAnim('singLEFT-alt');
+						case 447:
+							dad.playAnim('singRIGHT-alt');
+						case 549:
+							dad.playAnim('singUP-alt');
+						case 565:
+							dad.playAnim('singRIGHT-alt');
+						case 567:
+							dad.playAnim('singDOWN-alt');
+						case 572:
+							dad.playAnim('singLEFT-alt');
+						case 654:
+							dad.playAnim('singDOWN-alt');
+						case 693:
+							dad.playAnim('singRIGHT-alt');
+						case 802:
+							dad.playAnim('singUP-alt');
+						case 803:
+							dad.playAnim('singDOWN-alt');
+						case 818:
+							dad.playAnim('singLEFT-alt');
+						case 819:
+							dad.playAnim('singDOWN-alt');
+						case 820:
+							dad.playAnim('singUP-alt');
+						case 821:
+							dad.playAnim('singRIGHT-alt');
+					}
+			}
+*/
 
 
 		if (SONG.song.toLowerCase() == 'your demise')
