@@ -10,7 +10,7 @@ import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
 import openfl.utils.AssetLibrary;
 import flixel.system.FlxAssets;
-
+import flixel.addons.display.FlxBackdrop;
 import lime.app.Application;
 import lime.media.AudioContext;
 import lime.media.AudioManager;
@@ -179,7 +179,7 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
-
+	var space:FlxBackdrop;
 	var blackScreen:FlxSprite;
 
 	var altAnim:String = "";
@@ -637,12 +637,18 @@ class PlayState extends MusicBeatState
 					var posX = 50;
 					var posY = 200;
 
+					/*
 					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
 					space.antialiasing = false;
 					space.scale.set(1.65, 1.65);
 					space.scrollFactor.set(0.1, 0.1);
 					add(space);
-
+					*/
+					add(space = new FlxBackdrop(Paths.image('weeb/FinaleBG_1','week6')));
+					space.velocity.set(-10, 0);
+					space.antialiasing = false;
+					space.scrollFactor.set(0.1, 0.1);
+					space.scale.set(1.65, 1.65);
 
 					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
 					bg.antialiasing = false;
@@ -1096,7 +1102,7 @@ class PlayState extends MusicBeatState
 			{
 				remove(GFFakeout);
 				FlxG.camera.zoom = defaultCamZoom;
-				//add(blackScreen);
+				add(blackScreen);
 				remove(gf);
 				new FlxTimer().start(2, function(godlike:FlxTimer)
 					{
