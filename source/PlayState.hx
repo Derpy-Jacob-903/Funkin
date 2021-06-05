@@ -167,7 +167,7 @@ class PlayState extends MusicBeatState
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
-
+	var oldspace:FlxSprite;
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
 	var phillyTrain:FlxSprite;
 	var trainSound:FlxSound;
@@ -636,6 +636,13 @@ class PlayState extends MusicBeatState
 
 					var posX = 50;
 					var posY = 200;
+
+					//finalebgmybeloved
+					var oldspace:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('finalebgmybeloved'));
+					oldspace.antialiasing = false;
+					oldspace.scale.set(1.65, 1.65);
+					oldspace.scrollFactor.set(0.1, 0.1);
+					add(oldspace);
 
 					add(space = new FlxBackdrop(Paths.image('weeb/FinaleBG_1','week6')));
 					space.velocity.set(-10, 0);
@@ -1857,6 +1864,11 @@ class PlayState extends MusicBeatState
 			else
 				iconP1.animation.play('bf-old');
 		}
+
+		if (FlxG.keys.pressed.O && FlxG.keys.pressed.P)
+			{
+				remove(space);
+			}
 
 		switch (curStage)
 		{
