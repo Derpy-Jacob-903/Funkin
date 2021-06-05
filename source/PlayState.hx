@@ -637,18 +637,18 @@ class PlayState extends MusicBeatState
 					var posX = 50;
 					var posY = 200;
 
-                    var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
-                    space.antialiasing = false;
-                    space.scale.set(1.3, 1.3);
-                    space.scrollFactor.set(0.1, 0.1);
-                    add(space);
+					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
+					space.antialiasing = false;
+					space.scale.set(1.65, 1.65);
+					space.scrollFactor.set(0.1, 0.1);
+					add(space);
 
 
-                    var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
-                    bg.antialiasing = false;
-                    bg.scale.set(2.3, 2.3);
-                    bg.scrollFactor.set(0.6, 0.8);
-                    add(bg);
+					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
+					bg.antialiasing = false;
+					bg.scale.set(2.3, 2.3);
+					bg.scrollFactor.set(0.6, 0.8);
+					add(bg);
 
 					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleFG','week6'));
 					stageFront.antialiasing = false;
@@ -769,7 +769,7 @@ class PlayState extends MusicBeatState
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'monika-angry':
-				dad.x += 150;
+				dad.x += 15;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'senpai-angry':
@@ -815,7 +815,7 @@ class PlayState extends MusicBeatState
 				add(evilTrail);
 				}
 				dad.y -= 70.2;
-				dad.x += 230;
+				dad.x += 15;
 				boyfriend.x += 200;
 				boyfriend.y += 260;
 				gf.x += 180;
