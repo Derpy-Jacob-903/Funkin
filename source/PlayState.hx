@@ -646,7 +646,7 @@ class PlayState extends MusicBeatState
 
 					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
 					bg.antialiasing = false;
-					bg.scale.set(1.5, 1.5);
+					bg.scale.set(2.1, 2.1);
 					bg.scrollFactor.set(0.6, 0.8);
 					add(bg);
 
