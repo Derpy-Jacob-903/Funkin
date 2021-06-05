@@ -637,13 +637,6 @@ class PlayState extends MusicBeatState
 					var posX = 50;
 					var posY = 200;
 
-					/*
-					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
-					space.antialiasing = false;
-					space.scale.set(1.65, 1.65);
-					space.scrollFactor.set(0.1, 0.1);
-					add(space);
-					*/
 					add(space = new FlxBackdrop(Paths.image('weeb/FinaleBG_1','week6')));
 					space.velocity.set(-10, 0);
 					space.antialiasing = false;
