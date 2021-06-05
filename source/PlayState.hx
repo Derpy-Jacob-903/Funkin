@@ -1079,6 +1079,7 @@ class PlayState extends MusicBeatState
 
 	function GFScary(?dialogueBox:DialogueBox):Void
 	{
+		camHUD.visible = false;
 		var GFFakeout:FlxSprite = new FlxSprite();
 		GFFakeout.frames = Paths.getSparrowAtlas('GF_Fakeout_Cryemoji');
 		GFFakeout.animation.addByPrefix('idle', 'GFFakeout', 24, false);
@@ -1086,34 +1087,32 @@ class PlayState extends MusicBeatState
 		GFFakeout.scrollFactor.set();
 		GFFakeout.updateHitbox();
 		GFFakeout.screenCenter();
-		add(GFFakeout);
 		
-
-		if (dialogueBox != null)
-		{
-			inCutscene = true;
-			GFFakeout.animation.play('idle');
-			FlxG.sound.play(Paths.sound('GFFakeout'));
-			camHUD.visible = false;
-			new FlxTimer().start(22, function(swagTimer:FlxTimer) 
-				{
-					remove(GFFakeout);
-					camHUD.visible = true;
-					FlxG.camera.zoom = defaultCamZoom;
-					add(blackScreen);
-					remove(gf);
-					new FlxTimer().start(2, function(godlike:FlxTimer)
-						{
-							add(dialogueBox);
-						});
-				});
-		}
-		else
+		FlxG.sound.play(Paths.sound('GFFakeout'));
+		add(GFFakeout);
+		GFFakeout.animation.play('idle');
+			
+		new FlxTimer().start(22, function(swagTimer:FlxTimer) 
 			{
-		startCountdown();
-			}
+				remove(GFFakeout);
+				FlxG.camera.zoom = defaultCamZoom;
+				//add(blackScreen);
+				remove(gf);
+				new FlxTimer().start(2, function(godlike:FlxTimer)
+					{
+						if (dialogueBox != null)
+							{
+								inCutscene = true;
+								add(dialogueBox);
+								camHUD.visible = true;
+							}
+							else
+								{
+									startCountdown();
+								}
+					});
+			});
 	}	
-
 
 	function DarkStart(?dialogueBox:DialogueBox):Void
 		{
