@@ -1152,14 +1152,15 @@ class PlayState extends MusicBeatState
 		red.scrollFactor.set();
 
 
-		if (SONG.song.toLowerCase() == 'dreams-of-roses' || SONG.song.toLowerCase() == 'your-demise')
+		if (SONG.song.toLowerCase() == 'dreams of roses')
 		{
 			remove(black);
 		}	
 		if (SONG.song.toLowerCase() == 'high-school-conflict')
 			{
-				remove(black);
-	
+				//'lunchbox','week6'
+				FlxG.sound.playMusic(Paths.music('Lunchbox', 'week6'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			}
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
