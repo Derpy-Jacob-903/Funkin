@@ -637,18 +637,18 @@ class PlayState extends MusicBeatState
 					var posX = 50;
 					var posY = 200;
 
-					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
-					space.antialiasing = false;
-					space.scale.set(1.5, 1.5);
-					space.scrollFactor.set(0.1, 0.1);
-					add(space);
+                    var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
+                    space.antialiasing = false;
+                    space.scale.set(1.3, 1.3);
+                    space.scrollFactor.set(0.1, 0.1);
+                    add(space);
 
 
-					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
-					bg.antialiasing = false;
-					bg.scale.set(2.1, 2.1);
-					bg.scrollFactor.set(0.6, 0.8);
-					add(bg);
+                    var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
+                    bg.antialiasing = false;
+                    bg.scale.set(2.3, 2.3);
+                    bg.scrollFactor.set(0.6, 0.8);
+                    add(bg);
 
 					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleFG','week6'));
 					stageFront.antialiasing = false;
