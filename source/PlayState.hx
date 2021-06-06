@@ -815,11 +815,6 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'schoolEvil':
-				if(FlxG.save.data.distractions)
-				{
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				add(evilTrail);
-				}
 				dad.y -= 70.2;
 				dad.x += 15;
 				boyfriend.x += 200;
