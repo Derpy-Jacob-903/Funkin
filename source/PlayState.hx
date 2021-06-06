@@ -10,7 +10,7 @@ import flixel.graphics.FlxGraphic;
 import openfl.utils.AssetManifest;
 import openfl.utils.AssetLibrary;
 import flixel.system.FlxAssets;
-
+import flixel.addons.display.FlxBackdrop;
 import lime.app.Application;
 import lime.media.AudioContext;
 import lime.media.AudioManager;
@@ -167,7 +167,7 @@ class PlayState extends MusicBeatState
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
-
+	var oldspace:FlxSprite;
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
 	var phillyTrain:FlxSprite;
 	var trainSound:FlxSound;
@@ -179,7 +179,7 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
-
+	var space:FlxBackdrop;
 	var blackScreen:FlxSprite;
 
 	var altAnim:String = "";
@@ -637,12 +637,18 @@ class PlayState extends MusicBeatState
 					var posX = 50;
 					var posY = 200;
 
-					var space:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_1','week6'));
-					space.antialiasing = false;
-					space.scale.set(1.65, 1.65);
-					space.scrollFactor.set(0.1, 0.1);
-					add(space);
+					//finalebgmybeloved
+					var oldspace:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('finalebgmybeloved'));
+					oldspace.antialiasing = false;
+					oldspace.scale.set(1.65, 1.65);
+					oldspace.scrollFactor.set(0.1, 0.1);
+					add(oldspace);
 
+					add(space = new FlxBackdrop(Paths.image('weeb/FinaleBG_1','week6')));
+					space.velocity.set(-10, 0);
+					space.antialiasing = false;
+					space.scrollFactor.set(0.1, 0.1);
+					space.scale.set(1.65, 1.65);
 
 					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
 					bg.antialiasing = false;
@@ -809,13 +815,8 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'schoolEvil':
-				if(FlxG.save.data.distractions)
-				{
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				add(evilTrail);
-				}
-				dad.y -= 70.2;
-				dad.x += 15;
+				dad.y -= 69;
+				dad.x += 300;
 				boyfriend.x += 200;
 				boyfriend.y += 260;
 				gf.x += 180;
@@ -1079,6 +1080,7 @@ class PlayState extends MusicBeatState
 
 	function GFScary(?dialogueBox:DialogueBox):Void
 	{
+		camHUD.visible = false;
 		var GFFakeout:FlxSprite = new FlxSprite();
 		GFFakeout.frames = Paths.getSparrowAtlas('GF_Fakeout_Cryemoji');
 		GFFakeout.animation.addByPrefix('idle', 'GFFakeout', 24, false);
@@ -1086,34 +1088,32 @@ class PlayState extends MusicBeatState
 		GFFakeout.scrollFactor.set();
 		GFFakeout.updateHitbox();
 		GFFakeout.screenCenter();
-		add(GFFakeout);
 		
-
-		if (dialogueBox != null)
-		{
-			inCutscene = true;
-			GFFakeout.animation.play('idle');
-			FlxG.sound.play(Paths.sound('GFFakeout'));
-			camHUD.visible = false;
-			new FlxTimer().start(22, function(swagTimer:FlxTimer) 
-				{
-					remove(GFFakeout);
-					camHUD.visible = true;
-					FlxG.camera.zoom = defaultCamZoom;
-					add(blackScreen);
-					remove(gf);
-					new FlxTimer().start(2, function(godlike:FlxTimer)
-						{
-							add(dialogueBox);
-						});
-				});
-		}
-		else
+		FlxG.sound.play(Paths.sound('GFFakeout'));
+		add(GFFakeout);
+		GFFakeout.animation.play('idle');
+			
+		new FlxTimer().start(22, function(swagTimer:FlxTimer) 
 			{
-		startCountdown();
-			}
+				remove(GFFakeout);
+				FlxG.camera.zoom = defaultCamZoom;
+				add(blackScreen);
+				remove(gf);
+				new FlxTimer().start(2, function(godlike:FlxTimer)
+					{
+						if (dialogueBox != null)
+							{
+								inCutscene = true;
+								add(dialogueBox);
+								camHUD.visible = true;
+							}
+							else
+								{
+									startCountdown();
+								}
+					});
+			});
 	}	
-
 
 	function DarkStart(?dialogueBox:DialogueBox):Void
 		{
@@ -1859,6 +1859,11 @@ class PlayState extends MusicBeatState
 			else
 				iconP1.animation.play('bf-old');
 		}
+
+		if (FlxG.keys.pressed.O && FlxG.keys.pressed.P)
+			{
+				remove(space);
+			}
 
 		switch (curStage)
 		{

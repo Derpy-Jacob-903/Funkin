@@ -84,17 +84,6 @@ class CreditsMenu extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = true;
 		add(bg);
-
-		magenta = new FlxSprite(0).loadGraphic(Paths.image('Credits_LeftSide'));
-		magenta.scrollFactor.x = 0;
-		magenta.scrollFactor.y = 0;
-		magenta.setGraphicSize(Std.int(magenta.width * 1));
-		magenta.updateHitbox();
-		//magenta.screenCenter();
-		magenta.visible = false;
-		magenta.antialiasing = true;
-		magenta.color = 0xFFfd719b;
-		//add(magenta);
 		
 
 		camFollow = new FlxObject(0, 0, 1, 1);
