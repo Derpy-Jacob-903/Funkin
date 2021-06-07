@@ -285,13 +285,17 @@ class PlayState extends MusicBeatState
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
-		{
-			detailsText = "Story Mode: Week " + storyWeek;
-		}
-		else
-		{
-			detailsText = "Freeplay";
-		}
+			{
+				if (storyWeek == 0) {
+					detailsText = "Story Mode: Week Monika";
+				} else {
+					detailsText = "Story Mode: Week " + storyWeek;
+				}
+			}
+			else
+			{
+				detailsText = "Freeplay";
+			}
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
