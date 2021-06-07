@@ -265,7 +265,14 @@ class PlayState extends MusicBeatState
 			case 0:
 				storyDifficultyText = "Easy";
 			case 1:
-				storyDifficultyText = "Normal";
+				switch (curSong.toLowerCase())
+				{
+					case 'your reality':
+						storyDifficultyText = "Your Reality";
+					default:
+						storyDifficultyText = "Normal";
+				}
+				
 			case 2:
 				storyDifficultyText = "Hard";
 		}
@@ -735,6 +742,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'gf-doki':
 				gfVersion = 'gf-doki';
+			case 'nogf-pixel':
+				gfVersion = 'nogf-pixel';
 			default:
 				gfVersion = 'gf';
 		}

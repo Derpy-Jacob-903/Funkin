@@ -122,7 +122,7 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 
-				case 'gf-pixel-nogf':
+				case 'nogf-pixel':
 					tex = Paths.getSparrowAtlas('characters/nogfPixel');
 					frames = tex;
 					animation.addByIndices('singUP', 'GF IDLE', [2], "", 24, false);
@@ -495,34 +495,34 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
-				case 'playablesenpai':
-					frames = Paths.getSparrowAtlas('characters/playablesenpai');
-					animation.addByPrefix('idle', 'Senpai Idle', 24, false);
-					animation.addByPrefix('singUP', 'SENPAI UP NOTE', 24, false);
-					animation.addByPrefix('singLEFT', 'SENPAI LEFT NOTE', 24, false);
-					animation.addByPrefix('singRIGHT', 'SENPAI RIGHT NOTE', 24, false);
-					animation.addByPrefix('singDOWN', 'SENPAI DOWN NOTE', 24, false);
-					animation.addByPrefix('singUPmiss', 'miss Senpai UP NOTE', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'miss Senpai LEFT NOTE', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'miss Senpai RIGHT NOTE', 24, false);
-					animation.addByPrefix('singDOWNmiss', 'miss Senpai DOWN NOTE', 24, false);
+			case 'playablesenpai':
+				frames = Paths.getSparrowAtlas('characters/playablesenpai');
+				animation.addByPrefix('idle', 'Senpai Idle', 24, false);
+				animation.addByPrefix('singUP', 'SENPAI UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'SENPAI LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'SENPAI RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'SENPAI DOWN NOTE', 24, false);
+				animation.addByPrefix('singUPmiss', 'miss Senpai UP NOTE', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'miss Senpai LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'miss Senpai RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'miss Senpai DOWN NOTE', 24, false);
 	
-					addOffset('idle', 50, 200);
-					addOffset("singUP", 55, 237);
-					addOffset("singRIGHT", 50, 200);
-					addOffset("singLEFT", 90, 200);
-					addOffset("singDOWN", 64, 200);
-					addOffset("singUPmiss", 55, 237);
-					addOffset("singRIGHTmiss", 50, 200);
-					addOffset("singLEFTmiss", 90, 200);
-					addOffset("singDOWNmiss", 64, 200);
+				addOffset('idle', 50, 200);
+				addOffset("singUP", 55, 237);
+				addOffset("singRIGHT", 50, 200);
+				addOffset("singLEFT", 90, 200);
+				addOffset("singDOWN", 64, 200);
+				addOffset("singUPmiss", 55, 237);
+				addOffset("singRIGHTmiss", 50, 200);
+				addOffset("singLEFTmiss", 90, 200);
+				addOffset("singDOWNmiss", 64, 200);
 	
-					setGraphicSize(Std.int(width * 6));
-					updateHitbox();
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
 	
-					playAnim('idle');
+				playAnim('idle');
 	
-					antialiasing = false;
+				antialiasing = false;
 
 			case 'senpai-angry':
 				frames = Paths.getSparrowAtlas('characters/senpai');
@@ -767,6 +767,16 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
 				case 'gf-doki':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
+				case 'nogf-pixel':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
