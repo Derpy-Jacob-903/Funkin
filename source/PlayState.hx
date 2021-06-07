@@ -287,7 +287,7 @@ class PlayState extends MusicBeatState
 		if (isStoryMode)
 			{
 				if (storyWeek == 0) {
-					detailsText = "Story Mode: Week Monika";
+					detailsText = "Story Mode: Week Monika -";
 				} else {
 					detailsText = "Story Mode: Week " + storyWeek;
 				}
