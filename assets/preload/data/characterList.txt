@@ -5,3 +5,4 @@ senpai
 senpai-angry
 monika
 monika-angry
+playablesenpai

@@ -2182,8 +2182,16 @@ class PlayState extends MusicBeatState
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-						camFollow.x = boyfriend.getMidpoint().x - 200;
-						camFollow.y = boyfriend.getMidpoint().y - 200;
+						if (SONG.song.toLowerCase() == "your reality")
+							{
+								camFollow.x = boyfriend.getMidpoint().x - 500;
+								camFollow.y = boyfriend.getMidpoint().y - 600;
+							}
+							else
+								{
+									camFollow.x = boyfriend.getMidpoint().x - 200;
+									camFollow.y = boyfriend.getMidpoint().y - 200;
+								}
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;
