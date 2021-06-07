@@ -2599,6 +2599,7 @@ class PlayState extends MusicBeatState
 
 					if (SONG.song.toLowerCase() == 'your demise') {
 						FlxG.switchState(new CreditsMenu());
+						FlxG.save.data.monikabeaten = true;
 					} else {
 						FlxG.switchState(new StoryMenuState());
 					}

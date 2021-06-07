@@ -24,7 +24,8 @@ class FreeplayState extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 	var curDifficulty:Int = 1;
-
+	var weekbeaten:Int = 1;
+	var goku:Bool = false;
 	var scoreText:FlxText;
 	var diffText:FlxText;
 	var lerpScore:Int = 0;
@@ -37,7 +38,11 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
+		//if (FlxG.save.data.weekbeaten = true)
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
+		//var initSonglist = CoolUtil.coolTextFile(Paths.txt('smile'));
+
+			
 
 		for (i in 0...initSonglist.length)
 		{
@@ -74,7 +79,12 @@ class FreeplayState extends MusicBeatState
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
-		for (i in 0...songs.length)
+		if(FlxG.save.data.monikabeaten == true)
+			{
+				weekbeaten = 0;
+			}
+
+		for (i in 0...songs.length - weekbeaten)
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
 			songText.isMenuItem = true;
@@ -190,6 +200,19 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
+		if (curSelected == 3)
+			{
+				goku = true;
+				changeDiff(1 - curDifficulty);
+			}
+		
+		if (goku == true)
+			{
+				goku = false;
+				changeDiff(0);
+			}
+
+
 		if (controls.LEFT_P)
 			changeDiff(-1);
 		if (controls.RIGHT_P)
@@ -219,10 +242,20 @@ class FreeplayState extends MusicBeatState
 	{
 		curDifficulty += change;
 
-		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
-			curDifficulty = 0;
+		if (curSelected == 3)
+			{
+				if (curDifficulty < 1)
+					curDifficulty = 1;
+				if (curDifficulty > 1)
+					curDifficulty = 1;
+			}
+			else
+				{
+					if (curDifficulty < 0)
+						curDifficulty = 2;
+					if (curDifficulty > 2)
+						curDifficulty = 0;
+				}
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -230,14 +263,23 @@ class FreeplayState extends MusicBeatState
 
 		switch (curDifficulty)
 		{
+
 			case 0:
 				diffText.text = "EASY";
 			case 1:
-				diffText.text = 'NORMAL';
+				if (curSelected == 3)
+					{
+						diffText.text = 'Your Reality';
+					}
+					else
+						{
+							diffText.text = 'NORMAL';
+						}
 			case 2:
 				diffText.text = "HARD";
 		}
 	}
+
 
 	function changeSelection(change:Int = 0)
 	{
