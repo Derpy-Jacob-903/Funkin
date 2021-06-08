@@ -401,6 +401,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFTmiss', 'BF LEFT MISS', 24, false);
 				animation.addByPrefix('singRIGHTmiss', 'BF RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF DOWN MISS', 24, false);
+				animation.addByPrefix('peaceSIGN', 'BF PEACE', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP");
@@ -411,6 +412,7 @@ class Character extends FlxSprite
 				addOffset("singRIGHTmiss");
 				addOffset("singLEFTmiss");
 				addOffset("singDOWNmiss");
+				addOffset("peaceSIGN");
 
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();

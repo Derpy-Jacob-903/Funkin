@@ -235,7 +235,7 @@ class CreditsSpecialMenu extends MusicBeatState
 			if (curSelected >= 6)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = 6;
+				curSelected = 6 - 1;
 				
 			menuItems.forEach(function(spr:FlxSprite)
 			{

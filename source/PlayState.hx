@@ -180,6 +180,7 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 	var space:FlxBackdrop;
+	var whiteflash:FlxSprite;
 	var blackScreen:FlxSprite;
 
 	var altAnim:String = "";
@@ -330,6 +331,9 @@ class PlayState extends MusicBeatState
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
+		
+		whiteflash = new FlxSprite(-100, -100).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 100), FlxColor.WHITE);
+		whiteflash.scrollFactor.set();
 
 		blackScreen = new FlxSprite(-100, -100).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 100), FlxColor.BLACK);
 		blackScreen.scrollFactor.set();
@@ -370,7 +374,8 @@ class PlayState extends MusicBeatState
 				extra3 = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
 			case 'your demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
-				extra3 = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseEndDialogue'));
+				extra2 = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseEndDialogue'));
+				extra3 = CoolUtil.coolTextFile(Paths.txt('your demise/FinalCutsceneDialouge'));
 		}
 
 		trace(SONG.stage);
@@ -871,7 +876,7 @@ class PlayState extends MusicBeatState
 
 		doof3 = new DialogueBox(false, extra2);
 		doof3.scrollFactor.set();
-		//doof3.finishThing = extra2;
+		doof3.finishThing = demiseendtwotwo;
 
 		doof4 = new DialogueBox(false, extra3);
 		doof4.scrollFactor.set();
@@ -1017,11 +1022,6 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
-		// if (SONG.song == 'South')
-		// FlxG.camera.alpha = 0.7;
-		// UI_camera.zoom = 1;
-
-		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 		
 		if (isStoryMode)
@@ -1121,6 +1121,7 @@ class PlayState extends MusicBeatState
 				healthBar.visible = false;
 				healthBarBG.visible = false;
 				kadeEngineWatermark.visible = false;
+				add(whiteflash);
 				add(blackScreen);
 				new FlxTimer().start(2, function(godlike:FlxTimer)
 					{
@@ -1143,6 +1144,7 @@ class PlayState extends MusicBeatState
 
 	function DarkStart(?dialogueBox:DialogueBox):Void
 		{
+			add(whiteflash);
 			add(blackScreen);
 			remove(gf);
 			startCountdown();
@@ -1156,6 +1158,8 @@ class PlayState extends MusicBeatState
 			canPause = false;
 			vocals.stop();
 			FlxG.sound.music.stop();
+			FlxG.sound.music.volume = 0;
+			vocals.volume = 0;
 			if (dialogueBox != null)
 				{
 					// I didn't wanna make all these invisible but for some god forsaken reason,
@@ -1167,7 +1171,7 @@ class PlayState extends MusicBeatState
 					iconP1.visible = false;
 					iconP2.visible = false;
 					kadeEngineWatermark.visible = false;
-					camFollow.setPosition(dad.getMidpoint().x + 100, boyfriend.getMidpoint().y - 250);
+					camFollow.setPosition(dad.getMidpoint().x + 50, boyfriend.getMidpoint().y - 300);
 					add(dialogueBox);
 				}
 			else
@@ -1186,6 +1190,104 @@ class PlayState extends MusicBeatState
 				startCountdown();
 			});
 		}
+
+	function demiseend(?dialogueBox:DialogueBox):Void
+		{
+			camZooming = false;
+			inCutscene = true;
+			startedCountdown = false;
+			generatedMusic = false;
+			canPause = false;
+			FlxG.sound.music.pause();
+			vocals.pause();
+			vocals.stop();
+			FlxG.sound.music.stop();
+			remove(strumLineNotes);
+			remove(scoreTxt);
+			remove(healthBarBG);
+			remove(healthBar);
+			remove(iconP1);
+			remove(iconP2);
+			remove(kadeEngineWatermark);
+			camFollow.setPosition(dad.getMidpoint().x + 100, boyfriend.getMidpoint().y - 250);
+			if (dialogueBox != null)
+				{
+					add(dialogueBox);
+				}
+			else
+				{
+					demiseendtwo(doof4);
+				}
+				trace(inCutscene);
+		}
+
+
+		function demiseendtwotwo():Void
+			{
+				var endsceneone:FlxSprite = new FlxSprite();
+				endsceneone.frames = Paths.getSparrowAtlas('Funnicutscene/End1');
+				endsceneone.animation.addByPrefix('idle', 'Endscene', 24, false);
+				endsceneone.setGraphicSize(Std.int(endsceneone.width * 1.12));
+				endsceneone.scrollFactor.set();
+				endsceneone.updateHitbox();
+				endsceneone.screenCenter();
+
+				paused = true;
+
+				FlxG.sound.playMusic(Paths.music('cutscene_jargon_shmargon'), 0);
+				FlxG.sound.music.fadeIn(.5, 0, 0.8);
+				FlxG.camera.fade(FlxColor.WHITE, 0, false);
+				camHUD.visible = false;
+				add(endsceneone);
+				endsceneone.animation.play('idle');
+				FlxG.camera.fade(FlxColor.WHITE, 1, true, function(){}, true);
+
+				new FlxTimer().start(2.2, function(swagTimer:FlxTimer)
+					{
+						FlxG.sound.play(Paths.sound('dah'));
+					});
+
+				new FlxTimer().start(3.8, function(swagTimer:FlxTimer)
+					{
+						FlxG.camera.fade(FlxColor.BLACK, 2, false);
+						new FlxTimer().start(2.2, function(swagTimer:FlxTimer)
+							{
+								remove(endsceneone);
+								demiseendtwo(doof4);
+							});
+					});
+
+			}
+
+		function demiseendtwo(?dialogueBox:DialogueBox):Void
+			{
+				var endscenetwo:FlxSprite = new FlxSprite();
+				endscenetwo.frames = Paths.getSparrowAtlas('Funnicutscene/monikasenpaistanding');
+				endscenetwo.animation.addByPrefix('idle', 'Endscenetwo', 24, false);
+				endscenetwo.setGraphicSize(Std.int(endscenetwo.width * 1.12));
+				endscenetwo.scrollFactor.set();
+				endscenetwo.updateHitbox();
+				endscenetwo.screenCenter();
+				
+						new FlxTimer().start(3, function(swagTimer:FlxTimer)
+							{
+								add(endscenetwo);
+								endscenetwo.animation.play('idle');
+								FlxG.camera.fade(FlxColor.BLACK, 3, true, function()
+									{
+										if (dialogueBox != null)
+											{
+												camHUD.visible = true;
+												camFollow.setPosition(dad.getMidpoint().x + 100, boyfriend.getMidpoint().y - 250);
+												add(dialogueBox);
+											}
+										else
+											{
+												endSong();
+											}
+								}, true);
+							});
+			}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -2574,7 +2676,7 @@ class PlayState extends MusicBeatState
 					case 'dreams of roses':
 						roseend(doof4);
 					case 'your demise':
-						roseend(doof4);
+						demiseend(doof3);
 					default:
 						endSong();
 				}
@@ -3528,20 +3630,29 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'your demise')
 			{
-				if (curStep == 132)
+				switch (curStep)
 				{
-					boyfriend.visible = true;
-					dad.visible = true;
-					remove(blackScreen);
-					FlxG.camera.fade(FlxColor.WHITE, 0, false);
-					FlxG.camera.fade(FlxColor.WHITE, 0.2, true, function(){}, true);
-				}
+					case 132:
+						boyfriend.visible = true;
+						dad.visible = true;
+						remove(blackScreen);
 
-				if (curStep == 889)
-					{
+						new FlxTimer().start(0.03, function(tmr:FlxTimer)
+							{
+								whiteflash.alpha -= 0.15;
+								if (whiteflash.alpha > 0)
+									{
+										tmr.reset(0.03);
+									}
+									else
+										{
+											remove(whiteflash);
+										}
+							});
+					
+					case 889:
 						FlxG.camera.fade(FlxColor.BLACK, 2, false);
-					}
-	
+				}
 			}
 
 		// yes this updates every step.
@@ -3563,6 +3674,7 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+
 
 		if (generatedMusic)
 		{
