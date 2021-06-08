@@ -19,7 +19,7 @@ DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) ⋅ [itch.io page](https:
 - [Blantados](https://www.youtube.com/channel/UC4rwJYVeDHxGKnFDhHz88ZQ) - Vocals/Charting of "Your Reality"
 - [aśh](https://gamebanana.com/members/1813477) - Implement Alt animations per note and helped add end song cutscenes.
 - [Lumitic](https://twitter.com/PeacefulLuma) - Mad lad that actually knows how to code and taught me a few things for Freeplay fun.
-- [Zeexel32])https://twitter.com/Zeexel32) - Some general bug fixes.
+- [Zeexel32](https://twitter.com/Zeexel32) - Some general bug fixes/coding help.
 
 ### Friday Night Funkin'
  - [ninjamuffin99](https://twitter.com/ninja_muffin99) - Programming
