@@ -47,7 +47,7 @@ class CreditsSpecialMenu extends MusicBeatState
 	var logo:FlxSprite;
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
-
+	var thank:FlxSprite;
 	var backdrop:FlxBackdrop;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
@@ -91,8 +91,11 @@ class CreditsSpecialMenu extends MusicBeatState
 
 		logo = new FlxSprite(-700, -359).loadGraphic(Paths.image('Credits_LeftSide'));
 		add(logo);
-
-
+		
+	
+		thank = new FlxSprite(-380, -450).loadGraphic(Paths.image('ThanksIcon'));
+		thank.setGraphicSize(Std.int(thank.width * 0.5));
+		add(thank);
 		
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
