@@ -152,12 +152,6 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'credits')
-				{
-					FlxG.switchState(new CreditsMenu());
-				}
-				else
-				{
 					selectedSomethin = true;
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 					
@@ -194,7 +188,6 @@ class MainMenuState extends MusicBeatState
 							}
 						}
 					});
-				}
 			}
 		}
 
@@ -219,7 +212,10 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new FreeplayState());
 
 				trace("Freeplay Menu Selected");
+			case 'credits':
+				FlxG.switchState(new CreditsMenu());
 
+				trace("Freeplay Menu Selected");
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
 		}

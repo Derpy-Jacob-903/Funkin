@@ -27,7 +27,7 @@ import Discord.DiscordClient;
 
 using StringTools;
 
-class CreditsMenu extends MusicBeatState
+class CreditsSpecialMenu extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
@@ -36,9 +36,9 @@ class CreditsMenu extends MusicBeatState
 	var fixdiff:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['fnf', 'dev', 'special', 'git'];
+	var optionShit:Array<String> = ['ash','blantados', 'dan', 'kade', 'lumitic', 'zee'];
 	#else
-	var optionShit:Array<String> = ['fnf'];
+	var optionShit:Array<String> = ['lumi'];
 	#end
 
 	var newGaming:FlxText;
@@ -49,7 +49,7 @@ class CreditsMenu extends MusicBeatState
 	var camFollow:FlxObject;
 
 	var backdrop:FlxBackdrop;
-	var logoBl:FlxSprite;
+
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 	var difficultySelectors:FlxGroup;
 	var sprDifficulty:FlxSprite;
@@ -92,14 +92,7 @@ class CreditsMenu extends MusicBeatState
 		logo = new FlxSprite(-700, -359).loadGraphic(Paths.image('Credits_LeftSide'));
 		add(logo);
 
-		logoBl = new FlxSprite(-100, -250);
-		logoBl.frames = Paths.getSparrowAtlas('DDLCStart_Screen_Assets');
-		logoBl.antialiasing = true;
-		logoBl.setGraphicSize(Std.int(logoBl.width * 0.8));
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-		logoBl.animation.play('bump');
-		logoBl.updateHitbox();
-		add(logoBl);
+
 		
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -121,6 +114,8 @@ class CreditsMenu extends MusicBeatState
 			menuItem.antialiasing = true;
 		}
 
+
+		crediticons = new FlxTypedGroup<FlxSprite>();
 
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
@@ -168,66 +163,22 @@ class CreditsMenu extends MusicBeatState
 
 			if (controls.BACK)
 			{
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(new CreditsMenu());
 			}
 
 			if (controls.ACCEPT)
-				{
-					if (optionShit[curSelected] == 'fnf')
-					{
-						goToState();
-					}
-					else
-					{
-						if (optionShit[curSelected] == 'git')
-							{
-								goToState();
-							}
-						else
-						{
-							selectedSomethin = true;
-							FlxG.sound.play(Paths.sound('confirmMenu'));
-		
-							menuItems.forEach(function(spr:FlxSprite)
-							{
-								if (curSelected != spr.ID)
-								{
-									FlxTween.tween(spr, {alpha: 0}, 1.3, {
-										ease: FlxEase.quadOut,
-										onComplete: function(twn:FlxTween)
-										{
-											spr.kill();
-										}
-									});
-								}
-								else
-								{
-									if (FlxG.save.data.flashing)
-									{
-										FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-										{
-											goToState();
-										});
-									}
-									else
-									{
-										new FlxTimer().start(1, function(tmr:FlxTimer)
-										{
-											goToState();
-										});
-									}
-								}
-							});
-						}
-					}
-				}
+			{
+				goToState();
+			}
 		}
 		super.update(elapsed);
+
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			//spr.screenCenter(X);
 		});
 	}
+
 
 	function goToState()
 		{
@@ -235,34 +186,53 @@ class CreditsMenu extends MusicBeatState
 	
 			switch (daChoice)
 			{
-				case 'fnf':
+				case 'ash':
 					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game", "&"]);
+					Sys.command('/usr/bin/xdg-open', ["https://gamebanana.com/members/1813477", "&"]);
 					#else
-					FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game');
+					FlxG.openURL('https://gamebanana.com/members/1813477');
 					#end
-				case 'dev':
-					FlxG.switchState(new CreditDevMenu());
-				case 'special':
-					FlxG.switchState(new CreditsSpecialMenu());
-				case 'git':
+				case 'blantados':
 					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://github.com/aetherdx/Funkin_VsMonika", "&"]);
+					Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/channel/UC4rwJYVeDHxGKnFDhHz88ZQ", "&"]);
 					#else
-					FlxG.openURL('https://github.com/aetherdx/Funkin_VsMonika');
+					FlxG.openURL('https://www.youtube.com/channel/UC4rwJYVeDHxGKnFDhHz88ZQ');
 					#end
+				case 'dan':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/dansalvato", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/dansalvato');
+					#end
+				case 'kade':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/KadeDeveloper", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/KadeDeveloper');
+					#end
+				case 'lumitic':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/PeacefulLuma", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/PeacefulLuma');
+					#end
+				case 'zee':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/Zeexel32", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/Zeexel32');
+					#end	
 			}
 		}
-
 
 	function changeItem(huh:Int = 0)
 		{
 			curSelected += huh;
 
-			if (curSelected >= 4)
+			if (curSelected >= 6)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = 3 - 1;
+				curSelected = 6;
 				
 			menuItems.forEach(function(spr:FlxSprite)
 			{

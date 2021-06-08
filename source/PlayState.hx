@@ -664,7 +664,7 @@ class PlayState extends MusicBeatState
 					var bg:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleBG_2','week6'));
 					bg.antialiasing = false;
 					bg.scale.set(2.3, 2.3);
-					bg.scrollFactor.set(0.6, 0.8);
+					bg.scrollFactor.set(0.4, 0.6);
 					add(bg);
 
 					var stageFront:FlxSprite = new FlxSprite(posX, posY).loadGraphic(Paths.image('weeb/FinaleFG','week6'));
@@ -2193,8 +2193,8 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 400;
 						camFollow.x = dad.getMidpoint().x + 0;
 					case 'monika-angry':
-						camFollow.y = dad.getMidpoint().y - 430;
-						camFollow.x = dad.getMidpoint().x - 150;
+						camFollow.y = dad.getMidpoint().y - 390;
+						camFollow.x = dad.getMidpoint().x - 250;
 						
 				}
 

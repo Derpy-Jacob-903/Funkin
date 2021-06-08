@@ -206,10 +206,10 @@ class FreeplayState extends MusicBeatState
 				changeDiff(1 - curDifficulty);
 			}
 		
-		if (goku == true)
+		if (curSelected != 3 && goku == true)
 			{
 				goku = false;
-				changeDiff(0);
+				changeDiff(4);
 			}
 
 
@@ -293,8 +293,8 @@ class FreeplayState extends MusicBeatState
 		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = songs.length - 1;
-		if (curSelected >= songs.length)
+			curSelected = songs.length - weekbeaten - 1;
+		if (curSelected >= songs.length - weekbeaten)
 			curSelected = 0;
 
 		// selector.y = (70 * curSelected) + 30;

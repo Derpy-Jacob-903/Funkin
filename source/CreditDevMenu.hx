@@ -27,7 +27,7 @@ import Discord.DiscordClient;
 
 using StringTools;
 
-class CreditsMenu extends MusicBeatState
+class CreditDevMenu extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
@@ -36,9 +36,15 @@ class CreditsMenu extends MusicBeatState
 	var fixdiff:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['fnf', 'dev', 'special', 'git'];
+	var optionShit:Array<String> = ['duster', 'Tokyo', 'aether', 'Cval', 'Jorge', 'celeste', 'diff'];
 	#else
-	var optionShit:Array<String> = ['fnf'];
+	var optionShit:Array<String> = ['duster'];
+	#end
+
+	#if !switch
+	var creditshit:Array<String> = ['icond', 'icont', 'icona', 'iconcv', 'iconj', 'iconc', 'icondi'];
+	#else
+	var creditshit:Array<String> = ['icond'];
 	#end
 
 	var newGaming:FlxText;
@@ -49,7 +55,7 @@ class CreditsMenu extends MusicBeatState
 	var camFollow:FlxObject;
 
 	var backdrop:FlxBackdrop;
-	var logoBl:FlxSprite;
+
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 	var difficultySelectors:FlxGroup;
 	var sprDifficulty:FlxSprite;
@@ -92,14 +98,7 @@ class CreditsMenu extends MusicBeatState
 		logo = new FlxSprite(-700, -359).loadGraphic(Paths.image('Credits_LeftSide'));
 		add(logo);
 
-		logoBl = new FlxSprite(-100, -250);
-		logoBl.frames = Paths.getSparrowAtlas('DDLCStart_Screen_Assets');
-		logoBl.antialiasing = true;
-		logoBl.setGraphicSize(Std.int(logoBl.width * 0.8));
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-		logoBl.animation.play('bump');
-		logoBl.updateHitbox();
-		add(logoBl);
+
 		
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -121,6 +120,25 @@ class CreditsMenu extends MusicBeatState
 			menuItem.antialiasing = true;
 		}
 
+
+		crediticons = new FlxTypedGroup<FlxSprite>();
+		add(crediticons);
+
+		var tex = Paths.getSparrowAtlas('credits_icons');
+
+		for (i in 0...creditshit.length)
+		{
+			var crediticon:FlxSprite = new FlxSprite(520, 50);
+			crediticon.frames = tex;
+			crediticon.animation.addByPrefix('idle', creditshit[i] + " basic", 24);
+			crediticon.animation.addByPrefix('selected', creditshit[i] + " white", 24);
+			crediticon.animation.play('idle');
+			crediticon.ID = i;
+			crediticon.scale.set(.5, .5);
+			crediticons.add(crediticon);
+			crediticon.scrollFactor.set();
+			crediticon.antialiasing = false;
+		}
 
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
@@ -168,66 +186,22 @@ class CreditsMenu extends MusicBeatState
 
 			if (controls.BACK)
 			{
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(new CreditsMenu());
 			}
 
 			if (controls.ACCEPT)
-				{
-					if (optionShit[curSelected] == 'fnf')
-					{
-						goToState();
-					}
-					else
-					{
-						if (optionShit[curSelected] == 'git')
-							{
-								goToState();
-							}
-						else
-						{
-							selectedSomethin = true;
-							FlxG.sound.play(Paths.sound('confirmMenu'));
-		
-							menuItems.forEach(function(spr:FlxSprite)
-							{
-								if (curSelected != spr.ID)
-								{
-									FlxTween.tween(spr, {alpha: 0}, 1.3, {
-										ease: FlxEase.quadOut,
-										onComplete: function(twn:FlxTween)
-										{
-											spr.kill();
-										}
-									});
-								}
-								else
-								{
-									if (FlxG.save.data.flashing)
-									{
-										FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-										{
-											goToState();
-										});
-									}
-									else
-									{
-										new FlxTimer().start(1, function(tmr:FlxTimer)
-										{
-											goToState();
-										});
-									}
-								}
-							});
-						}
-					}
-				}
+			{
+				goToState();
+			}
 		}
 		super.update(elapsed);
+
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			//spr.screenCenter(X);
 		});
 	}
+
 
 	function goToState()
 		{
@@ -235,36 +209,85 @@ class CreditsMenu extends MusicBeatState
 	
 			switch (daChoice)
 			{
-				case 'fnf':
+				case 'duster':
 					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game", "&"]);
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/SirDusterBuster", "&"]);
 					#else
-					FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game');
+					FlxG.openURL('https://twitter.com/SirDusterBuster');
 					#end
-				case 'dev':
-					FlxG.switchState(new CreditDevMenu());
-				case 'special':
-					FlxG.switchState(new CreditsSpecialMenu());
-				case 'git':
+				case 'Tokyo':
 					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://github.com/aetherdx/Funkin_VsMonika", "&"]);
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/TokyoGalaxyOG", "&"]);
 					#else
-					FlxG.openURL('https://github.com/aetherdx/Funkin_VsMonika');
+					FlxG.openURL('https://twitter.com/TokyoGalaxyOG');
+					#end
+				case 'aether':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/AetherDX", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/AetherDX');
+					#end
+				case 'Cval':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/cval_brown", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/cval_brown');
+					#end	
+				case 'Jorge':
+					if (FlxG.keys.pressed.G)
+						{
+							//Hueh keeping this forever
+							#if linux
+							Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/watch?v=0MW9Nrg_kZU", "&"]);
+							#else
+							FlxG.openURL('https://www.youtube.com/watch?v=0MW9Nrg_kZU');
+							#end
+						}
+					else
+						{
+							#if linux
+							Sys.command('/usr/bin/xdg-open', ["https://twitter.com/Jorge_SunSpirit", "&"]);
+							#else
+							FlxG.openURL('https://twitter.com/Jorge_SunSpirit');
+							#end
+						}
+				case 'celeste':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ", "&"]);
+					#else
+					FlxG.openURL('https://www.youtube.com/channel/UCm3eGs2etEOMzRX0iQ4QzqQ');
+					#end
+				case 'diff':
+					#if linux
+					Sys.command('/usr/bin/xdg-open', ["https://twitter.com/Diffraktor", "&"]);
+					#else
+					FlxG.openURL('https://twitter.com/Diffraktor');
 					#end
 			}
 		}
-
 
 	function changeItem(huh:Int = 0)
 		{
 			curSelected += huh;
 
-			if (curSelected >= 4)
+			if (curSelected >= 7)
 				curSelected = 0;
 			if (curSelected < 0)
-				curSelected = 3 - 1;
+				curSelected = 7 - 1;
 				
 			menuItems.forEach(function(spr:FlxSprite)
+			{
+				spr.animation.play('idle');
+
+				if (spr.ID == curSelected)
+				{
+					spr.animation.play('selected');
+				}
+
+				spr.updateHitbox();
+			});
+
+			crediticons.forEach(function(spr:FlxSprite)
 			{
 				spr.animation.play('idle');
 
