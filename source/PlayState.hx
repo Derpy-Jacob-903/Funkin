@@ -1114,15 +1114,24 @@ class PlayState extends MusicBeatState
 			{
 				remove(GFFakeout);
 				FlxG.camera.zoom = defaultCamZoom;
-				add(blackScreen);
 				remove(gf);
+				// I know this looks messy, but it works 
+				boyfriend.visible = false;
+				dad.visible = false;
+				healthBar.visible = false;
+				healthBarBG.visible = false;
+				kadeEngineWatermark.visible = false;
+				add(blackScreen);
 				new FlxTimer().start(2, function(godlike:FlxTimer)
 					{
 						if (dialogueBox != null)
 							{
+								kadeEngineWatermark.visible = true;
+								healthBar.visible = true;
+								healthBarBG.visible = true;
+								camHUD.visible = true;
 								inCutscene = true;
 								add(dialogueBox);
-								camHUD.visible = true;
 							}
 							else
 								{
@@ -1149,6 +1158,15 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.stop();
 			if (dialogueBox != null)
 				{
+					// I didn't wanna make all these invisible but for some god forsaken reason,
+					// the end dialogue started having the same fucking issues as the beginning dialogue.
+					strumLineNotes.visible = false;
+					scoreTxt.visible = false;
+					healthBarBG.visible = false;
+					healthBar.visible = false;
+					iconP1.visible = false;
+					iconP2.visible = false;
+					kadeEngineWatermark.visible = false;
 					camFollow.setPosition(dad.getMidpoint().x + 100, boyfriend.getMidpoint().y - 250);
 					add(dialogueBox);
 				}
@@ -3512,6 +3530,8 @@ class PlayState extends MusicBeatState
 			{
 				if (curStep == 132)
 				{
+					boyfriend.visible = true;
+					dad.visible = true;
 					remove(blackScreen);
 					FlxG.camera.fade(FlxColor.WHITE, 0, false);
 					FlxG.camera.fade(FlxColor.WHITE, 0.2, true, function(){}, true);
