@@ -366,7 +366,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictDialogue'));
 				extra3 = CoolUtil.coolTextFile(Paths.txt('high school conflict/high-school-conflictEndDialogue')); 
 			case 'dreams of roses':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesDialogue'));
+				extra1 = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesDialogue'));
 				extra3 = CoolUtil.coolTextFile(Paths.txt('dreams of roses/dreams-of-rosesEndDialogue')); 
 			case 'your demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('your demise/your-demiseDialogue'));
@@ -787,6 +787,10 @@ class PlayState extends MusicBeatState
 				dad.x += 150;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'duet':
+				dad.x += 150;
+				dad.y += 380;
+				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'monika-angry':
 				dad.x += 15;
 				dad.y += 360;
@@ -863,7 +867,7 @@ class PlayState extends MusicBeatState
 
 		doof2 = new DialogueBox(false, extra1);
 		doof2.scrollFactor.set();
-		//doof2.finishThing = endsong;
+		doof2.finishThing = rosestart;
 
 		doof3 = new DialogueBox(false, extra2);
 		doof3.scrollFactor.set();
@@ -1062,7 +1066,7 @@ class PlayState extends MusicBeatState
 				case 'high school conflict':
 					schoolIntro(doof);
 				case 'dreams of roses':
-					schoolIntro(doof);
+					schoolIntro(doof2);
 				case 'your demise':
 					if (showCutscene)
 						{
@@ -1154,6 +1158,16 @@ class PlayState extends MusicBeatState
 				}
 			trace(inCutscene);
 		}
+	
+	function rosestart():Void
+		{
+			dad.playAnim('cutscenetransition');
+			new FlxTimer().start(1.2, function(godlike:FlxTimer)
+			{
+				dad.playAnim('idle');
+				startCountdown();
+			});
+		}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
@@ -1167,6 +1181,7 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'dreams of roses')
 		{
+			dad.playAnim('cutsceneidle');
 			remove(black);
 		}	
 		if (SONG.song.toLowerCase() == 'high-school-conflict')
@@ -2156,6 +2171,9 @@ class PlayState extends MusicBeatState
 					case 'monika':
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
+					case 'duet':
+						camFollow.y = dad.getMidpoint().y - 400;
+						camFollow.x = dad.getMidpoint().x + 0;
 					case 'monika-angry':
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 150;
@@ -2191,16 +2209,18 @@ class PlayState extends MusicBeatState
 					case 'mall':
 						camFollow.y = boyfriend.getMidpoint().y - 200;
 					case 'school':
-						if (SONG.song.toLowerCase() == "your reality")
-							{
+						switch (curSong.toLowerCase())
+						{
+							case "your reality":
 								camFollow.x = boyfriend.getMidpoint().x - 500;
 								camFollow.y = boyfriend.getMidpoint().y - 600;
-							}
-							else
-								{
-									camFollow.x = boyfriend.getMidpoint().x - 200;
-									camFollow.y = boyfriend.getMidpoint().y - 200;
-								}
+							case "dreams of roses":
+								camFollow.x = boyfriend.getMidpoint().x - 300;
+								camFollow.y = boyfriend.getMidpoint().y - 200;
+							default:
+								camFollow.x = boyfriend.getMidpoint().x - 200;
+								camFollow.y = boyfriend.getMidpoint().y - 200;
+						}
 					case 'schoolEvil':
 						camFollow.x = boyfriend.getMidpoint().x - 200;
 						camFollow.y = boyfriend.getMidpoint().y - 200;

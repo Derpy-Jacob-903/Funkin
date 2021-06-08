@@ -4,5 +4,6 @@ bf-pixelangry
 senpai
 senpai-angry
 monika
+duet
 monika-angry
 playablesenpai
