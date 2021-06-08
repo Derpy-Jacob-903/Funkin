@@ -247,9 +247,9 @@ class CreditsMenu extends MusicBeatState
 					FlxG.switchState(new CreditsSpecialMenu());
 				case 'git':
 					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://github.com/aetherdx/Funkin_VsMonika", "&"]);
+					Sys.command('/usr/bin/xdg-open', ["https://github.com/aetherdx/monika", "&"]);
 					#else
-					FlxG.openURL('https://github.com/aetherdx/Funkin_VsMonika');
+					FlxG.openURL('https://github.com/aetherdx/monika');
 					#end
 			}
 		}
