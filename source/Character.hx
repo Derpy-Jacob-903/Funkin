@@ -624,6 +624,44 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 			
+				//Duet_Assets
+				case 'duet':
+				frames = Paths.getSparrowAtlas('characters/Duet_Assets');
+				animation.addByPrefix('idle', 'Duet Idle', 24, false);
+				animation.addByPrefix('singUP', 'Duet Monika UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'Duet Monika LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'Duet Monika RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'Duet Monika DOWN NOTE', 24, false);
+
+				animation.addByPrefix('singUP-alt', 'Duet Senpai UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'Duet Senpai DOWN NOTE', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'Duet Senpai LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'Duet Senpai RIGHT NOTE', 24, false);
+
+				animation.addByPrefix('cutsceneidle', 'cutscene idle', 24, false);
+				animation.addByPrefix('cutscenetransition', 'cutscene transition', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				addOffset("singUP-alt");
+				addOffset("singRIGHT-alt");
+				addOffset("singLEFT-alt");
+				addOffset("singDOWN-alt");
+
+				addOffset("cutsceneidle");
+				addOffset("cutscenetransition");
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				antialiasing = false;
+
 			case 'monika-angry':
 				frames = Paths.getSparrowAtlas('characters/Monika_Finale');
 				animation.addByPrefix('idle', 'MONIKA IDLE', 24, false);
