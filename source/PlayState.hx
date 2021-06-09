@@ -1105,13 +1105,26 @@ class PlayState extends MusicBeatState
 		GFFakeout.scrollFactor.set();
 		GFFakeout.updateHitbox();
 		GFFakeout.screenCenter();
+
+		// Variables from the default evilSchool stage
+		var schoolFakeout:FlxSprite = new FlxSprite(400, 200);
+		schoolFakeout.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool','week6');
+		schoolFakeout.animation.addByPrefix('idle', 'background 2', 24);
+		schoolFakeout.animation.play('idle');
+		schoolFakeout.scrollFactor.set(0.8, 0.9);
+		schoolFakeout.scale.set(6, 6);
+		add(schoolFakeout);
+		FlxG.sound.play(Paths.sound('awhellnaw'));	// THEY ON THAT SPUNCHBOB SHIT
+
+		new FlxTimer().start(1.3, function(timer:FlxTimer) {
+			FlxG.sound.play(Paths.sound('GFFakeout'));
+			add(GFFakeout);
+			GFFakeout.animation.play('idle');
+		});
 		
-		FlxG.sound.play(Paths.sound('GFFakeout'));
-		add(GFFakeout);
-		GFFakeout.animation.play('idle');
-			
-		new FlxTimer().start(22, function(swagTimer:FlxTimer) 
+		new FlxTimer().start(23.3, function(swagTimer:FlxTimer) 
 			{
+				remove(schoolFakeout);
 				remove(GFFakeout);
 				FlxG.camera.zoom = defaultCamZoom;
 				remove(gf);
