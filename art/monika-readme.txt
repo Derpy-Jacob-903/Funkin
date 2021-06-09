@@ -1,7 +1,6 @@
 Thanks for downloading Monika Full Week for Friday Night Funkin'!
 
-
-!! DON'T play this game if you have epilepsy, a strong sensitivity to lights, or other issues regarding flashing lights and fast imagery. !!
+!! Minor warning to those with epilepsy or issues regarding fast imagery and flashing lights during the mod's 3rd song. Play at your own discretion. !!
 
 https://gamebanana.com/mods/47364
 
