@@ -418,10 +418,10 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
-					createCoolText(['Powered', 'by']);
+					createCoolText(['dont play', 'if you have']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('Kade Engine');
+					addMoreText('epillepsy');
 				else
 				{
 					addMoreText('Newgrounds');
