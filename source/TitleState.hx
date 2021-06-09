@@ -421,7 +421,7 @@ class TitleState extends MusicBeatState
 					createCoolText(['dont play', 'if you have']);
 			case 7:
 				if (Main.watermarks)
-					addMoreText('epillepsy');
+					addMoreText('epilepsy');
 				else
 				{
 					addMoreText('Newgrounds');
