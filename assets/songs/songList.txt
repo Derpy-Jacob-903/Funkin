@@ -1,5 +1,0 @@
-week H
-  dunk
-  RAM
-  Hello world
-  glitcher
