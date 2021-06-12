@@ -1,0 +1,27 @@
+version: 'v0.2-{build}-web3'
+branches:
+  only:
+  - main
+skip_tags: true
+image: Ubuntu2004
+clone_folder: /home/appveyor/site
+
+environment:
+  HAXELIB_ROOT: /home/appveyor/haxelib
+  HAXE_INSTALLDIR: /home/appveyor/haxe
+  SRC_REPO: https://github.com/aflacc/ProjectFNF.git
+  GITHUB_ACCESS_TOKEN:
+    secure: AYoRbFDfZVEdfVVzZFuz5wJXJkAEOOkHtgAweikYp3tqImQUhwg2P6dCjyPxEF7o
+
+install:
+  - git config --global credential.helper store
+  - printf "https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com\n" > $HOME/.git-credentials
+  - git config --global user.email "mycatisagoodboi@gmail.com"
+  - git config --global user.name "Derpy-Jacob-903"
+  - cd /home/appveyor/site
+  - git clone $SRC_REPO /home/appveyor/site
+build_script:
+  - cd /home/appveyor/site
+  - git add --all
+  - git commit -m "nightly build through appveyor"
+  - git push
