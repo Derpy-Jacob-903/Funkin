@@ -29,7 +29,7 @@ DDLC Links: **[DDLC Official Webiste](http://ddlc.moe) ⋅ [itch.io page](https:
 
 ### Doki Doki Literature Club!
 - [Dan Salvato](https://twitter.com/dansalvato) - Creator of DDLC
-- [Team Salvato](https://twitter.com/TeamSalvato) - Publishers of DDLC
+- [Team Salvato](https://twitter.com/TeamSalvato) - Publishers of DDLc
 
 ### Kade Engine
 - [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
